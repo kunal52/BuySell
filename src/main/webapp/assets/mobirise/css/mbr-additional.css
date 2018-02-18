@@ -1,0 +1,42 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+#slider-0 H1 {
+  text-align: left;
+}
+#slider-0 P {
+  color: #ffffff;
+  text-align: center;
+  font-size: 25px;
+  font-family: 'Montserrat', sans-serif;
+}
+#features1-1 P {
+  color: #ffffff;
+  text-align: center;
+}
+#features1-1 .mbr-section__col .mbr-header__text {
+  color: #ffffff;
+  text-align: center;
+}
+#features1-7 P {
+  text-align: center;
+  color: #ffffff;
+}
+#features1-7 .mbr-section__col .mbr-header__text {
+  text-align: center;
+  color: #ffffff;
+}
+#features1-7 .mbr-section-title .mbr-header__text {
+  color: #ffffff;
+}
+#ext_menu-g .mbr-brand__name {
+  font-size: 16px;
+}
+#ext_menu-g.mbr-navbar--stuck .mbr-navbar__section {
+  background: #2c2c2c;
+}
+#ext_menu-g .mbr-navbar__section {
+  background: #2c2c2c;
+}
+#ext_menu-g .mbr-navbar__hamburger {
+  color: #ffffff;
+}

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+Seller</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/bootstrap.css">
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.js"></script>
+<style>
+.text-center{
+color:black ;
+}
+html,body{
+width:100vw;
+height:100vh;
+margin:0px;
+padding:0px;
+overflow-x:hidden;
+}
+label{
+color:black ;
+}
+#myFileInput {
+    display:none;
+}
+.parallax {
+    background-image: url("images/sell1.jpg");
+    min-height: 500px; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+	height:620px;
+}
+
+</style>
+<script>
+function formValidation()  
+{   
+var phone = document.forms["myForm"]["phone"].value;
+var phoneNum = phone.replace(/[^\d]/g, '');
+if( phoneNum.length == "")
+{
+return true; 
+}
+ else if (phoneNum.charAt(0)!="9" && phoneNum.charAt(0)!="8" && phoneNum.charAt(0)!="7" && phoneNum.charAt(0)!="6" && phoneNum.charAt(0)!="0")
+           {
+                alert("enter the correct number");
+                return false
+           }
+		   else if(phoneNum < 0)
+		   {
+		    alert("number cant be negative ");
+                return false
+		   }
+else if(phoneNum.length > 9 && phoneNum.length < 12 ) {  
+return true; 
+} 
+else
+{
+alert("enter the valid phone number");
+}
+}
+
+function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#blah')
+                    .attr('src', e.target.result)
+                    .width(150)
+                    .height(200);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+</head>
+<body onload="document.registration.userid.focus();">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="index.html"><img src="images/111.png" width="140px" height="33px" style="margin-top:-7px;"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="about.html">About</a></li>
+        <li><a href="contactus.html">Contact us</a></li>
+        <li><a href="support.html">Support</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="parallax">
+	<section  class="container-fluid" style=" padding:10px;">
+				<div class="text-center"><button class="btn btn-info btn-lg"  style="margin-top:250px;"data-toggle="modal" data-target="#modal">Sell your Product</button></div>
+				
+						<div class="modal fade" id="modal">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+								<button class="close" data-dismiss="modal">&times;</button>
+									<h3 class="text-center">Fill your product details</h3>
+								</div>
+								<div class="modal-body">
+									
+									<form name='myForm' action="database/sellproduct.jsp"  onSubmit="return formValidation();" method="post" enctype="multipart/form-data" ">
+									
+									<div class="form-group">
+										<label style="margin-top:20px;">Seller Name:</label>
+										<input type="text"  class="form-control" name="username" placeholder="Enter your name">
+									</div>
+									
+									<div class="form-group">
+										<label>Product Name:</label>
+										<input type="text" class="form-control" name="pname" placeholder="Enter your product name">
+									</div>
+									
+									<div class="form-group">
+											<label>Product Type:</label> 
+											<select class="form-control" id="sclt1" name="sclt1" >
+												<option style="color:gainsboro;">Select your product Type</option>
+												<option value="Home Appliances">Home Appliances</option>
+												<option value="kitchen">Kitchen Appliances</option>
+												<option value="smart">Smart phones</option>
+												<option value="comp">Laptops,tablets & Desktops</option>
+												<option value="elect">Electronic Accessories</option>
+												<option value="bok">Books</option>
+												<option value="wat">Watches</option>
+												<option>others</option> 
+											</select>
+										</div>
+										
+										<div class="form-group">
+										<label>Price:</label>
+										<input type="number" class="form-control" min="1" name="price" placeholder="Enter the price of product">
+										</div>
+										
+										<div class="form-group">
+										<label>Email-id:</label>
+										<input type="email" class="form-control" name="email" placeholder="Enter your Email-id">
+										</div>
+										
+										<div class="form-group">
+										<label>Phone no:</label>
+										<input type="number" class="form-control" id="phone" name="phone"  placeholder="Enter your mobile number">
+										</div>
+										
+										<div class="form-group">
+										<label>Location:</label>
+										<input type="text" class="form-control"  name="loc"  placeholder="Enter your location">
+										</div>
+										
+										<div class="form-group">
+										<label>Upload Image:</label>
+										<input type="file" id="myFileInput" name="product_picture"onchange="readURL(this);" accept=" image/jpeg" />
+	
+										<input type="button" class="btn btn-info" onclick="document.getElementById('myFileInput').click()" value="Select Image" />
+										<img id="blah" src="#" alt="your image" />
+										</div>
+										
+										<div class="form-group">
+											<label>Product Description:</label> 
+											<textarea class="form-control" name="description" rows="4" placeholder="Enter The Product Description....(Note: Please mention the condition and issues of the product also if any)"></textarea>
+										</div>
+										
+										<button class="btn btn-success"  style="width:100px;">Submit</button>
+										
+									</form>
+										</div>
+						</div>
+					</div>
+					</div>
+					</section></div>
+					<section  class="container-fluid" style=" padding:10px; background-color:white;">
+	<div class="page-header">
+			<h1 style="color:black;" class="text-center"><b>Eutilize allows our customer to get the best selling expierence</b></h1>	
+		</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 col-md-offset-1">
+					<div style="color:black;">
+						<img src="images/sell.jpg" style="height:400px;" class="img-block center-block">
+					</div>
+				</div>
+					<div class="col-md-4 col-md-offset-2">
+				<div class="caption">
+							<h2 style="color:green;"><b>WHY Sell through us<strong>?</strong></b></h2>
+							<h4 style="line-height:25px;">Well its not about only selling the product we are giving a platform 
+							<br>where you can get assurance of real buyer and quality service<br> with maximum value of product within a finger tip.</h4>
+						</div>
+						</div>
+				</div>
+	</section>		
+	<section class="container-fluid" style= "background:black;opacity:0.9;">
+		<div class="col-md-4 " style="margin-top:20px;color:gainsboro;padding:2px;line-height:30px;height:500px;">
+	<div class="page-header text-center">
+		<h3>About</h3>
+		</div>
+<p style="color:gainsboro;" class="col-md-offset-1">Eutilize is India's online based secure company founded with the idea that unlock new value
+for customer and take the customer satisfaction to a whole new place .<br> A new idea of belief with renewing the product rather than repairing which 
+give our customer a whole new experience of service.</p>
+		</div>
+		<div class=" col-md-3 col-sm-offset-1 " style="margin-top:20px;color:gainsboro;padding:2px;line-height:40px;">
+			<div class="page-header text-center">
+		<h3>Quick Links</h3>
+		</div>
+		<ul class="col-sm-offset-1" style="color:gray;">
+			<li><h4><a href="about.html" style="color:gainsboro;">About Us</a><h4></li>
+			<li><h4><a href="contactus.html" style="color:gainsboro;">Contact Us</a><h4></li>
+			<li><h4><a href="support.html" style="color:gainsboro;">Customer Feedback</a><h4></li>
+		</ul>
+		</div>
+		
+			<div class="col-md-3 col-md-offset-1" style="margin-top:20px;color:gainsboro;padding:2px;line-height:40px;">
+		<div class="page-header text-center">
+		<h3>Details</h3>
+		</div>
+		<ul  style="color:gray;">
+			<li style="color:gainsboro;"><h4 id="h">Register Address:<br>LC Block-A Room No.714 Chandigarh University<br> Gharuan , Punjab<h2></li>
+			<li style="color:gainsboro;"><h4 id="h">Email-id:<br>xyz@gmail.com<h4></li>
+			<li style="color:gainsboro;"><h4 id="h">Mobile No:<br>9876543210<h4></li>
+			<li style="color:gainsboro;"><h4 id="h">Whatsapp No:<br>9876543210<h4></li>
+		</ul>
+		</div>
+		
+	</section>
+</body>
+</html>
