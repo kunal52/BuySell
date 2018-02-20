@@ -9,16 +9,20 @@ Buyer</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/bootstrap.css">
 <script src="js/jquery.js"></script>
+<script src="https://www.w3schools.com/lib/w3.js"></script>
 <script src="js/bootstrap.js"></script>
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
+<link rel="stylesheet" media="screen and (max-width: 1024px)" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <style>
-body{
-background: #02111D;
-background: -webkit-linear-gradient(to right, #02111D, #037BB5, #02111D); 
-background: linear-gradient(to right, #02111D, #037BB5, #02111D);
 
+
+html{
+width:100%;
+height:100%;
+margin:0px;
+padding:0px;
+overflow-x:hidden;
 }
 </style>
 <script>				
@@ -35,11 +39,11 @@ background: linear-gradient(to right, #02111D, #037BB5, #02111D);
         responseFn( a );
     }
 });
-});		
+});	
+
 </script>
 </head>
-<body>
-
+<body bgcolor="#E6E6FA">
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -78,18 +82,18 @@ background: linear-gradient(to right, #02111D, #037BB5, #02111D);
     <tbody>
       <tr>
 		<td><a href="#cla" data-toggle="collapse"><strong>Home Appliances</strong></a>
-		<div id="cla" class="collapse">
+		<!--<div id="cla" class="collapse">
 		<a href="">Music System</a><br>
 		<a href="">Heater</a><br>
 		<a href="">Fan</a><br>
 		<a href="">Iron</a><br>
 		<a href="">Gyser</a><br>
-		<a href="">Others</a></div>
+		<a href="">Others</a></div>-->
 		</td>
       </tr>
       <tr>
         <td><a href="#cla1" data-toggle="collapse"><strong>Kitchen Appliances</strong></a>
-		<div id="cla1" class="collapse">
+		<!--<div id="cla1" class="collapse">
 		<a href="">Induction</a><br>
 		<a href="">Rice Maker</a><br>
 		<a href="">Toaster</a><br>
@@ -97,28 +101,28 @@ background: linear-gradient(to right, #02111D, #037BB5, #02111D);
 		<a href="">Mixer</a><br>
 		<a href="">Grinder</a><br>
 		<a href="">Microwave Oven</a><br>
-		<a href="">Others</a></div>
+		<a href="">Others</a></div>-->
 		</td>
       </tr>
 	  <tr>
          <td><a href="#cla3" data-toggle="collapse"><strong>Smart Phones</strong></a>
-		<div id="cla3" class="collapse">
+		<!--<div id="cla3" class="collapse">
 		<a href="">Android</a><br>
 		<a href="">IOS</a><br>
 		<a href="">Windows</a><br>
-		<a href="">Featured Phones</a><br></div>
+		<a href="">Featured Phones</a><br></div>-->
 		</td>
       </tr><tr>
          <td><a href="#cla4" data-toggle="collapse"><strong>Laptops,Tablets & Desktops</strong></a>
-		<div id="cla4" class="collapse">
+		<!--<div id="cla4" class="collapse">
 		<a href="">Laptops</a><br>
 		<a href="">Desktops</a><br>
-		<a href="">Tablets</a><br>
+		<a href="">Tablets</a><br></div>-->
 		</td>
       </tr>
 	  <tr>
         <td><a href="#cla5" data-toggle="collapse"><strong>Electronic Accessories</strong></a>
-		<div id="cla5" class="collapse">
+		<!--<div id="cla5" class="collapse">
 		<a href="">Ear Phones</a><br>
 		<a href="">Mouse</a><br>
 		<a href="">Power Bank</a><br>
@@ -126,7 +130,7 @@ background: linear-gradient(to right, #02111D, #037BB5, #02111D);
 		<a href="">Selfie Stick</a><br>
 		<a href="">Smart Watches</a><br>
 		<a href="">Torch</a><br>
-		<a href="">Others</a></div>
+		<a href="">Others</a></div>-->
 		</td>
       </tr>
 	  <tr>
@@ -143,6 +147,7 @@ background: linear-gradient(to right, #02111D, #037BB5, #02111D);
 </aside>
 
 
+<div class="container col-md-9" >
 <% ItemDatabaseOperations items=new ItemDatabaseOperations();
 	
 	//Calculate Offset and Page Size
@@ -167,54 +172,56 @@ background: linear-gradient(to right, #02111D, #037BB5, #02111D);
 	}
    
    
-   
- 
+
+
+		
+		
+	
    
    List<Item>list=items.getItems(pageSize, offset, type);
    for(Item i:list)
    {
-	   String id="https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/productImage/3fe15ac6-0e89-4d01-ac35-50a1dbcd66ab.jpg";
+	   String id="https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/productImage/"+i.getId()+".jpg";
 	   
 %>
-<a href="#modal1" data-toggle="modal"><div class="col-md-3" style="margin-top:50px;">
+
+
+
+
+<a href="buyer.html"><div class="col-md-3" style="margin-top:50px;">					<!-- new page will open-->
 		<div class="thumbnail">
-		
-				<img src="https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/productImage/<%= i.getId() %>.jpg" style="height:150px;">
+				<img src="<%=id %>" style="height:200px;" >
 			<div class="caption">
-				<h4 class="pull-right" ><%= i.getName() %></h4>
-				<h4 style="color:blue;"><%= i.getPrice() %></h4>
+				<h4 class="pull-right" >&#8377; <%= i.getPrice() %></h4>
+				<h4 style="color:blue;"><%= i.getName() %></h4>
 			</div>
 		</div>
 </div></a>
 
-
 <%} %>
 
-<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" id="modal1">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<button class="close" data-dismiss="modal">&times;</button>
-							<h3 class="text-center">Product Description</h3>
-						</div>
-						<div class="modal-body">
-						
-						<img src="images/1.jpg" width="300px" height="200px" class="img-block center-block">
-						<div class="caption col-md-offset-3">
-							<h4>Product Name:</h4>
-						    <h4 >Price:</h4>	
-						</div>
-						<h4 class="page-header text-center">Description</h4>
-						<p class="text-center"></p>
-						<h4 class="page-header text-center">Location</h4>
-						<p class="text-center"></p>
-						<h4 class="page-header text-center">Contact Seller</h4>
-						<p class="text-center"></p>
-						</div>
-			         </div>
-			    </div>
-			</div>	
-			</section>
+<!--enter the jsp code inside  this div not outside-->
+
+</div>
+</section>
+			
+			
+			<section  class="container-fluid">								<!-- i added a new section here-->
+<div class="text-center">											
+			<ul class="pagination pagination-lg">
+			<li class="active"><a href="buy.jsp?page=<%=pageNo-1%>">previous</a></li>
+				<%
+			
+			System.out.print(Math.ceil(ItemDatabaseOperations.getTotalItems()/10));
+			for(int i=0;i<=Math.ceil(ItemDatabaseOperations.getTotalItems()/10);i++)
+			{
+			%>
+				<li><a href="buy.jsp?page=<%=i%>"><%=i+1%></a></li>
+				<%} %>
+				<li class="active"><a href="">Next</a></li>
+			</ul>
+		</div>
+		</section>
 	<section class="container-fluid" style= "background:black;opacity:0.9;">
 		<div class="col-md-4 " style="margin-top:20px;color:gainsboro;padding:2px;line-height:30px;height:500px;">
 	<div class="page-header text-center">

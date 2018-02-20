@@ -252,7 +252,7 @@ public class ItemDatabaseOperations {
 	
 	
 	@SuppressWarnings("finally")
-	public int getTotalItems()
+	public static int getTotalItems()
 	{
 		int count=0;
 		JdbcConnection jdbcConnection=new JdbcConnection();
