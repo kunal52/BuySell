@@ -29,7 +29,6 @@ public class AdminResource {
 	
 	}
 	
-	
 	@Path("/verify")
 	@POST
 	@Consumes(MediaType.TEXT_PLAIN)
