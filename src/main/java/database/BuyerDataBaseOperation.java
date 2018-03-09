@@ -20,6 +20,11 @@ public class BuyerDataBaseOperation {
 	
 	public static String addBuyItemTransaction(ItemBuyer i)
 	{
+		String tid=UUID.randomUUID().toString();
+		JdbcConnection jdbcConnection=new JdbcConnection();
+		java.sql.Connection connection=jdbcConnection.connect();
+		PreparedStatement prepareStatement = null;
+		
 		Contact buyer=null;
 		UserDatabaseOperation userDatabaseOperation=new UserDatabaseOperation();
 		try {
@@ -34,14 +39,11 @@ public class BuyerDataBaseOperation {
 			e.printStackTrace();
 		}
 		
-		String tid=UUID.randomUUID().toString();
-		JdbcConnection jdbcConnection=new JdbcConnection();
-		java.sql.Connection connection=jdbcConnection.connect();
 		
 		
 		
 		try {
-			PreparedStatement prepareStatement = connection.prepareStatement(getAddItemQuery());
+			prepareStatement = connection.prepareStatement(getAddItemQuery());
 			
 			prepareStatement.setString(1, tid);
 			prepareStatement.setString(2, i.getItem().getId());
@@ -51,6 +53,7 @@ public class BuyerDataBaseOperation {
 			prepareStatement.setString(6, "false");
 			
 			prepareStatement.executeUpdate();
+			
 			prepareStatement.closeOnCompletion();
 			
 			connection.close();
@@ -58,6 +61,16 @@ public class BuyerDataBaseOperation {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}
+		finally{
+		    try {
+		    	connection.close();
+		    	jdbcConnection.disConnect();
+		    	return tid;
+		    } catch (final SQLException e) {
+		        // TODO Auto-generated catch block
+		        e.printStackTrace();
+		    }
 		}
 		
 		return tid;

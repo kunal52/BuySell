@@ -65,31 +65,52 @@ public class ItemDatabaseOperations {
 			preparedStatement.setFloat(9,  item.getPrice());
 			preparedStatement.setString(10, "false");
 			preparedStatement.executeUpdate();
+			
 			try {
-			preparedStatement.closeOnCompletion();
-			connection.close();
-			return item;
+				preparedStatement.close();
+		    	connection.close();
+		    	jdbcConnection.disConnect();
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("ERRROR");
-			return item;
+		
 		}
+
+			
+	finally{
+	    try {
+	    	preparedStatement.close();
+	    	connection.close();
+	    	jdbcConnection.disConnect();
+	    	return item;
+	    } catch (final SQLException e) {
+	        // TODO Auto-generated catch block
+	        e.printStackTrace();
+	    }
+	}
+			
+			return item;
+		
+			
 	}
 	
-	@SuppressWarnings("finally")
+
 	public Item getItem(String id)
 	{
+		Item item = null;;
 		String itemQuery=createGetItemQuery(id);
 		JdbcConnection jdbcConnection=new JdbcConnection();
 		java.sql.Connection connection=jdbcConnection.connect();
+		java.sql.PreparedStatement preparedStatement=null;
+		
 		try {
-			java.sql.PreparedStatement preparedStatement=connection.prepareStatement(itemQuery);
+			preparedStatement=connection.prepareStatement(itemQuery);
 				preparedStatement.setString(1, id);
 				ResultSet r=preparedStatement.executeQuery();
 				
 				if(r.next())
 				{
-					Item item=new Item(id,
+					item=new Item(id,
 							r.getString(2),
 							r.getString(3),
 							r.getString(4),
@@ -100,37 +121,43 @@ public class ItemDatabaseOperations {
 							r.getFloat(9),
 							r.getString(10));
 					connection.close();
-					return item;
 				}
-		
+				preparedStatement.close();
+		    	connection.close();
+		    	jdbcConnection.disConnect();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		finally {
-			try {
-				connection.close();
-				return null;
-			} catch (SQLException e) {
-				e.printStackTrace();
-				return null;
-			}
+		finally{
+		    try {
+		    	preparedStatement.close();
+		    	connection.close();
+		    	jdbcConnection.disConnect();
+		    	return item;
+		    } catch (final SQLException e) {
+		        
+		        e.printStackTrace();
+		    }
 		}
+		return item;
 	}
 	
 	public List<Item>getItems(int pagesize,int offset,String type)
 	{
+		
+		JdbcConnection jdbcConnection=new JdbcConnection();
+		java.sql.Connection connection=jdbcConnection.connect();
+		java.sql.PreparedStatement preparedStatement=null;
 		pagesize--;
 		int size=0;
 		List<Item> items=new ArrayList<>();
 		try {
-		JdbcConnection jdbcConnection=new JdbcConnection();
-		java.sql.Connection connection=jdbcConnection.connect();
-		java.sql.PreparedStatement preparedStatement;
+		
 		if(type==null||type.equals("all"))
-			preparedStatement=connection.prepareStatement("select * from Items");
+			preparedStatement=connection.prepareStatement("select * from Items where isverified = true");
 		else 
 			{
-			preparedStatement=connection.prepareStatement("select * from Items where type = ?");
+			preparedStatement=connection.prepareStatement("select * from Items where type = ? and isverified = true");
 			preparedStatement.setString(1, type);
 			}
 		
@@ -155,10 +182,25 @@ public class ItemDatabaseOperations {
 			}
 			size++;
 		}
-		return items;
+		preparedStatement.close();
+    	connection.close();
+    	jdbcConnection.disConnect();
 		}catch (Exception e) {
-			return items;
+			
 		}	
+		finally{
+		    try {
+		    	preparedStatement.close();
+		    	connection.close();
+		    	jdbcConnection.disConnect();
+		    	return items;
+		    } catch (final SQLException e) {
+		        
+		        e.printStackTrace();
+		    }
+		}
+		return items;
+		
 		
 	}
 	
@@ -166,12 +208,15 @@ public class ItemDatabaseOperations {
 	public List<Item> getItemsWithSearch(String search)
 	{
 		List<Item> items=new ArrayList<>();
-		try {
 		JdbcConnection jdbcConnection=new JdbcConnection();
 		java.sql.Connection connection=jdbcConnection.connect();
-		java.sql.PreparedStatement preparedStatement;
-		preparedStatement=connection.prepareStatement("select * from Items where name like '%"+search+"%"+"'" );
+		java.sql.PreparedStatement preparedStatement=null;
+		
+		try {
+		
+		preparedStatement=connection.prepareStatement("select * from Items where name like '%"+search+"%"+"'" +"and isverified = true");
 		ResultSet rs=preparedStatement.executeQuery();
+		
 		while(rs.next())
 		{
 			items.add(new Item(rs.getString(1),
@@ -185,40 +230,74 @@ public class ItemDatabaseOperations {
 							rs.getFloat(9),
 							rs.getString(10)));
 		}
-		return items;
-		}catch (Exception e) {
-			return items;
-		}	
+		
+		preparedStatement.close();
+    	connection.close();
+    	jdbcConnection.disConnect();
+	}catch (Exception e) {
+		// TODO: handle exception
 	}
+		finally {
+			 try {
+			    	preparedStatement.close();
+			    	connection.close();
+			    	jdbcConnection.disConnect();
+			    	return items;
+			    } catch (final SQLException e) {
+			        
+			        e.printStackTrace();
+			    }
+		}
+		return items;
 	
+	}
 	
 	public List<String>getSuggestionStringList(String query)
 	{
+		JdbcConnection jdbcConnection=new JdbcConnection();
+	java.sql.Connection connection=jdbcConnection.connect();
+	java.sql.PreparedStatement preparedStatement = null;
 		List<String>list=new ArrayList<>();
 		try {
-			JdbcConnection jdbcConnection=new JdbcConnection();
-			java.sql.Connection connection=jdbcConnection.connect();
-			java.sql.PreparedStatement preparedStatement;
-			preparedStatement=connection.prepareStatement("select name from Items where name like '%"+query+"%"+"'");
+			
+			preparedStatement=connection.prepareStatement("select name from Items where name like '%"+query+"%"+"'" +"and isverified = true");
 			ResultSet rs=preparedStatement.executeQuery();
 			while(rs.next())
 			{
 				list.add(rs.getString(1));
 			}
-			return list;
+			preparedStatement.close();
+	    	connection.close();
+	    	jdbcConnection.disConnect();
 			}catch (Exception e) {
-				return list;
+				
 			}	
+		finally{
+		    try {
+		    	preparedStatement.close();
+		    	connection.close();
+		    	jdbcConnection.disConnect();
+		    	return list;
+		    } catch (final SQLException e) {
+		        // TODO Auto-generated catch block
+		        e.printStackTrace();
+		    }
+		}
+		return list;
 	}
 	
 	public List<Item>getNewItems(int pagesize,int offset){
+		
+		
+		JdbcConnection jdbcConnection=new JdbcConnection();
+		java.sql.Connection connection=jdbcConnection.connect();
+		java.sql.PreparedStatement preparedStatement = null;
+		
 		pagesize--;
 		int size=0;
 		List<Item> items=new ArrayList<>();
 		try {
-		JdbcConnection jdbcConnection=new JdbcConnection();
-		java.sql.Connection connection=jdbcConnection.connect();
-		java.sql.PreparedStatement preparedStatement;
+		
 		
 		preparedStatement=connection.prepareStatement("select * from Items ORDER BY timestamp DESC");
 		
@@ -243,44 +322,61 @@ public class ItemDatabaseOperations {
 			}
 			size++;
 		}
-		return items;
+		preparedStatement.close();
+    	connection.close();
+    	jdbcConnection.disConnect();
 		}catch (Exception e) {
-			return items;
+			
 		}	
+		finally{
+		    try {
+		    	preparedStatement.close();
+		    	connection.close();
+		    	jdbcConnection.disConnect();
+		    	return items;
+		    } catch (final SQLException e) {
+		        // TODO Auto-generated catch block
+		        e.printStackTrace();
+		    }
+		}
+		return items;
 		
 	}
 	
 	
-	@SuppressWarnings("finally")
 	public static int getTotalItems()
 	{
 		int count=0;
 		JdbcConnection jdbcConnection=new JdbcConnection();
 		java.sql.Connection connection=jdbcConnection.connect();
+		java.sql.PreparedStatement preparedStatement=null;
+		
 		try {
-			java.sql.PreparedStatement preparedStatement=connection.prepareStatement("SELECT COUNT(1)  FROM Items");
+			preparedStatement=connection.prepareStatement("SELECT COUNT(1) FROM Items where isverified = true ");
 			ResultSet set=preparedStatement.executeQuery();
 			set.next();
 			count= set.getInt(1);
 
+			preparedStatement.close();
+	    	connection.close();
+	    	jdbcConnection.disConnect();
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		finally {
-			try {
-				connection.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			finally {
-				jdbcConnection.disConnect();
-				return count;
-			}
-			
+		finally{
+		    try {
+		    	preparedStatement.close();
+		    	connection.close();
+		    	jdbcConnection.disConnect();
+		    	return count;
+		    } catch (final SQLException e) {
+		        // TODO Auto-generated catch block
+		        e.printStackTrace();
+		    }
 		}
+		return count;
 	}
 	
 	

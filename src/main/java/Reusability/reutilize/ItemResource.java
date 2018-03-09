@@ -35,7 +35,6 @@ public class ItemResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{itemId}")
     public Item getIt(@PathParam("itemId") String id) {
-    
     	ItemDatabaseOperations item=new ItemDatabaseOperations();
     	Item i=item.getItem(id);
         return i;

@@ -58,9 +58,11 @@ public class UserDatabaseOperation {
 		
 		JdbcConnection jdbcConnection=new JdbcConnection();
 		java.sql.Connection connection=jdbcConnection.connect();
+		java.sql.PreparedStatement preparedStatement=null;
+		
 		Contact contact=null;
 		try {
-			java.sql.PreparedStatement preparedStatement=connection.prepareStatement(query);
+			preparedStatement=connection.prepareStatement(query);
 			preparedStatement.setString(1, email);
 			ResultSet rs=preparedStatement.executeQuery();
 			if(rs.next())
@@ -76,12 +78,26 @@ public class UserDatabaseOperation {
 			
 			preparedStatement.closeOnCompletion();
 			connection.close();
-			return contact;
+			
 				
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return contact;	
+			
 		}
+		
+		finally{
+		    try {
+		    	preparedStatement.close();
+		    	connection.close();
+		    	jdbcConnection.disConnect();
+		    	return contact;
+		    } catch (final SQLException e) {
+		        // TODO Auto-generated catch block
+		        e.printStackTrace();
+		    }
+		}
+		return contact;
+		
 	}
 	
 	
@@ -94,11 +110,12 @@ public class UserDatabaseOperation {
 		}
 		JdbcConnection jdbcConnection=new JdbcConnection();
 		java.sql.Connection connection=jdbcConnection.connect();
+		java.sql.PreparedStatement preparedStatement=null;
 		
 		String id=UUID.randomUUID().toString();
 		contact.setId(id);
 		try {
-			java.sql.PreparedStatement preparedStatement=connection.prepareStatement("INSERT INTO `Users`(`id`, `f_name`, `l_name`, `email`, `location`, `phone`, `other`) VALUES (?,?,?,?,?,?,?)");
+			preparedStatement=connection.prepareStatement("INSERT INTO `Users`(`id`, `f_name`, `l_name`, `email`, `location`, `phone`, `other`) VALUES (?,?,?,?,?,?,?)");
 			preparedStatement.setString(1, id);
 			preparedStatement.setString(2, contact.getF_name());
 			preparedStatement.setString(3, contact.getL_name());
@@ -109,11 +126,24 @@ public class UserDatabaseOperation {
 			preparedStatement.executeUpdate();
 			preparedStatement.closeOnCompletion();
 			connection.close();
-			return contact;
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new SQLException();
 		}
+		finally{
+		    try {
+		    	preparedStatement.close();
+		    	connection.close();
+		    	jdbcConnection.disConnect();
+		    	return contact;
+		    } catch (final SQLException e) {
+		        // TODO Auto-generated catch block
+		        e.printStackTrace();
+		    }
+		}
+		
+		return contact;
+		
 		
 	}
 	

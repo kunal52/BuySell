@@ -27,6 +27,8 @@
 <%@page import="Reusability.models.Item"%>
 
 <%  
+String DATA_DIRECTORY = "data";
+
 String username=null;
 String email=null;
 String phone=null;
@@ -53,11 +55,15 @@ factory.setRepository(repository);
 //Create a new file upload handler
 ServletFileUpload upload = new ServletFileUpload(factory);
 
+String uploadFolder = getServletContext().getRealPath("")
++ File.separator + DATA_DIRECTORY;
+	
+
 //Parse the request
 List<FileItem> items = upload.parseRequest(request);
 
-
 Iterator<FileItem> iter = items.iterator();
+
 while (iter.hasNext()) {
     FileItem item = iter.next();
 
@@ -97,10 +103,14 @@ while (iter.hasNext()) {
     	else
       image=item.getInputStream();
         
+    String fileName = new File(item.getName()).getName();
+    String filePath = uploadFolder + File.separator + fileName;
+    File uploadedFile = new File(filePath);
+    System.out.println(filePath);
+    // saves the file to upload directory
+    item.write(uploadedFile);
     }
 }
-
-
 
 
 Contact  contact=new Contact("",
@@ -131,14 +141,21 @@ ItemDatabaseOperations itemDatabaseOperations=new ItemDatabaseOperations();
 Item newItem=itemDatabaseOperations.insertItem(i);
 
 
+	
 
 
 if(newItem!=null)
-{
+{%>
+	
+	<h1><%=image.available() %></h1>
+	
+<% 
+	System.out.print(image.available());
 	CloudStorage.uploadImageToServer(newItem.getId(), image);
-	System.out.print("File Uploaded To GC SERVER");
+	
  }
 %>
+
 	DataInserted
 
 </body>

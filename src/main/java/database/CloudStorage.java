@@ -23,7 +23,8 @@ public class CloudStorage {
 				    .build()
 				    .getService();
 	
-    
+	
+		
 	  Bucket bucket=storage.get("fir-cloud-7e07e.appspot.com");
 	 // InputStream content=new FileInputStream(new File(path));
 	  bucket.create("productImage/"+id+".jpg", content, "image/jpeg");
