@@ -7,6 +7,18 @@
 <title>
 Buyer
 </title>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115532154-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-115532154-1');
+</script>
+
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/bootstrap.css">
 <script src="js/jquery.js"></script>
@@ -17,7 +29,7 @@ Buyer
 <script src="js/d.js"></script>
 <style>
 	.parallax {
-		background-image: url("images/mix.jpg");
+		background-image: url("https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/website/images/mix.jpg");
 		max-height: 300px; 
 		background-attachment: fixed;
 		background-position: center;
@@ -54,7 +66,7 @@ $(document).ready(function() {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="index.html"><img src="images/1111.png" width="160px" height="43px" style="margin-top:-9px;"></a>
+      <a class="navbar-brand" href="index.html"><img src="https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/website/images/1111.png" width="160px" height="43px" style="margin-top:-9px;"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
@@ -100,7 +112,9 @@ $(document).ready(function() {
 								<div class="modal-body">
 								<strong><h4><b>You can also order Grossary and Stationery Products from our website by simply using our whatsapp number</b></h4></strong>
 									<strong><h4>NOTE:</h4></strong>
-									<li class="text-center">Items less than &#8377;50 ROOM DELIVERY costs &#8377;2</li>
+									<li class="text-center">Items less than &#8377;10 ROOM DELIVERY costs &#8377;1</li>
+									<li class="text-center">Items greater than &#8377;10 less than &#8377;20 ROOM DELIVERY costs &#8377;2</li>
+									<li class="text-center">Items greater than &#8377;20 and less than &#8377;50 ROOM DELIVERY costs &#8377;3</li>
 									<li class="text-center">Items greater than &#8377;50 ROOM DELIVERY costs &#8377;5</li>
 								</div>
 								<div class="caption"><h4><strong>Whatsapp number - 7783860428</strong></h4></div>

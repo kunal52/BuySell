@@ -4,45 +4,64 @@
 <title>
 renew
 </title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115532154-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-<link rel="stylesheet" href="css/bootstrap.css">
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.js"></script>
+  gtag('config', 'UA-115532154-1');
+</script>
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:700,400&subset=cyrillic,latin,greek,vietnamese">
+  <link rel="stylesheet" href="assets/web/assets/mobirise-icons-bold/mobirise-icons-bold.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/mobirise/css/style.css">
+  <link rel="stylesheet" href="assets/mobirise-slider/style.css">
+  <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.js"></script>
 <style>
 .text-center{
-color:black ;
+	color:black ;
 }
 html,body{
-width:100%;
-height:100%;
-margin:0px;
-padding:0px;
-overflow-x:hidden;
+	width:100%;
+	height:100%;
+	margin:0px;
+	padding:0px;
+	overflow-x:hidden;
 }
 label{
-color:black;
+	color:black;
 }
-.parallax {
-    background-image: url("images/rew.jpg");
+#para {
+    background-image: url("images/rec.jpg");
     min-height: 500px; 
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-		height:620px;
 }
+input[type=number]::-webkit-inner-spin-button, 
+	input[type=number]::-webkit-outer-spin-button { 
+	-webkit-appearance: none; 
+	margin: 0; 
+	}
+input[type=number] {
+    -moz-appearance:textfield;
+	}
 </style>
 <script>
 function formValidation()  
 {   
 var phone = document.forms["myForm"]["phone"].value;
 var phoneNum = phone.replace(/[^\d]/g, '');
-if( phoneNum.length == "")
-{
-return true; 
-}
- else if (phoneNum.charAt(0)!="9" && phoneNum.charAt(0)!="8" && phoneNum.charAt(0)!="7" && phoneNum.charAt(0)!="6" && phoneNum.charAt(0)!="0")
+ if (phoneNum.charAt(0)!="9" && phoneNum.charAt(0)!="8" && phoneNum.charAt(0)!="7" && phoneNum.charAt(0)!="6" && phoneNum.charAt(0)!="0")
            {
                 alert("enter the correct number");
                 return false
@@ -58,45 +77,17 @@ return true;
 else
 {
 alert("enter the valid phone number");
+return false;
 }
 } 
-function populate(s1,s2){
-	var s1 = document.getElementById(s1);
-	var s2 = document.getElementById(s2);
-	s2.innerHTML= "";
-	if(s1.value == "Home Appliances")
-	{
-		var optionArray = ["|","television|Telivision","refrigirator|Refrigirator","washingMachine|WashingMachine","musicSystem|MusicSystem","fan|Fan","aC | AC","iron|Iron","heater|Heater","gyser|Gyser","vaccumecleaners|Vaccumecleaners","sweingmachine|Sweingmachine","invertors|Invertors","others|Others"];	
-	}
-	else if(s1.value == "kitchen")
-	{
-		var optionArray = ["|","induction|Induction","ricemaker|Ricemaker","toaster|Toaster","kettle|Kettle","waterpurifier|Waterpurifier","gasstove|Gasstove","pressurecooker|Pressurecooker","mixer|Mixer","grinder|Grinder","microwaveoven|Microwaveoven","others|Others"];
-	}
-	else if(s1.value == "smart")
-	{
-		var optionArray = ["|","android|Android","ios|Ios","windows|Windows","feature phone|Feature phone"];
-	}
-	else if(s1.value == "comp")
-	{
-	 var optionArray = ["|","laptop|Laptop","desktop monitor|Desktop monitor","tablets|Tablets"];
-	}
-	for(var option in optionArray)
-	{
-		var pair = optionArray[option].split("|");
-		var newOption = document.createElement("option");
-		newOption.value = pair[0];
-		newOption.innerHTML = pair[1];
-		s2.options.add(newOption);
-	}
-}
 function populate(s3,s4){
 	var s3 = document.getElementById(s3);
 	var s4 = document.getElementById(s4);
 	s4.innerHTML= "";
 	if(s3.value == "chd")
 	{
-		var optionArray = ["|","lc-a|LC-A","lc-b|LC-B","lc-c|LC-C","lc-d|LC-D","sukhna|Sukhna","zakir | Zakir","tagore|Tagore","nc-1|Nc-1","nc-2|Nc-2","nc-3|Nc-3","nc-4|Nc-4","nc-5|Nc-5","nc-6|Nc-6","nc-7|Nc-7","gobind|Gobind","block-1|Block-1","block-2|Block-2","block-3|Block-3","block-4|Block-4","block-5|Block-5","block-6|Block-6","block-7|Block-7","block-8|Block-8","block-9|Block-9","block-11|Block-11","block-12|Block-12"];	
-	}
+		var optionArray = ["lc-a|LC-A","lc-b|LC-B","lc-c|LC-C","lc-d|LC-D","sukhna|Sukhna","zakir | Zakir","tagore|Tagore","nc-1|Nc-1","nc-2|Nc-2","nc-3|Nc-3","nc-4|Nc-4","nc-5|Nc-5","nc-6|Nc-6","nc-7|Nc-7","gobind|Gobind","block-1|Block-1","block-2|Block-2","block-3|Block-3","block-4|Block-4","block-5|Block-5","block-6|Block-6","block-7|Block-7","block-8|Block-8","block-9|Block-9","block-11|Block-11","block-12|Block-12"];	
+	}	
 	for(var option in optionArray)
 	{
 		var pair = optionArray[option].split("|");
@@ -106,10 +97,9 @@ function populate(s3,s4){
 		s4.options.add(newOption);
 	}
 }
-
 </script>
 </head>
-<body onload="document.registration.userid.focus();">
+<body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -118,7 +108,7 @@ function populate(s3,s4){
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="index.html"><img src="images/111.png" width="140px" height="33px" style="margin-top:-7px;"></a>
+      <a class="navbar-brand" href="index.html"><img src="https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/website/images/1111.png" width="160px" height="43px" style="margin-top:-9px;"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
@@ -129,124 +119,141 @@ function populate(s3,s4){
     </div>
   </div>
 </nav>
-<div class="parallax">
-<section  class="container-fluid" style=" padding:10px;">
-				<div class="text-center"><button class="btn btn-info btn-lg"  style="margin-top:250px;"data-toggle="modal" data-target="#modal">Renew your Product</button></div>
-						<div class="modal fade" id="modal">
-						<div class="modal-dialog">
-							<div class="modal-content">
-								<div class="modal-header">
-								<button class="close" data-dismiss="modal">&times;</button>
-									<h3 class="text-center">Fill your product details</h3>
-								</div>
-								<div class="modal-body">
-									<form name='myForm'  onSubmit="return formValidation();">
-										<div class="form-group">
-											<label>Customer Name:</label>
-											<input type="text"  class="form-control" name="custom" placeholder="Enter your name">
-										</div>
-										<div class="form-group">
-											<label>Email-id:</label>
-											<input type="email" class="form-control" name="email" placeholder="Enter your email-id">
-										</div>
-										<div class="form-group">
-											<label>Phone no:</label>
-											<input type="number" class="form-control" name="phone" id="phone" placeholder="Enter your mobile no.">
-										</div>
-										<div class="form-group">
-											<label>Product Type:</label> 
-											<select class="form-control" id="sclt1" name="sclt1" onchange="populate('sclt1','sclt2')">
-												<option style="color:gainsboro;">Select your product Type</option>
-												<option value="Home Appliances">Home Appliances</option>
-												<option value="kitchen">Kitchen Appliances</option>
-												<option value="smart">Smart phones</option>
-												<option value="comp">Laptops,tablet & Computers</option>
-												<option value="wat">Watches</option>
-												<option>others</option> 
-											</select>
-										</div>
-										<div class="form-group">
-											<label>Product Detail:</label> 
-											<select class="form-control" id="sclt2" name="sclt2"></select>
-										</div>
+<section id="para"class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--full-height mbr-section--bg-adapted mbr-parallax-background" data-rv-view="193" style="background-image: url(https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/website/images/rew.jpg);">
+    <div class="mbr-box__magnet mbr-box__magnet--sm-padding mbr-box__magnet--center-right">    
+        <div class="mbr-box__container mbr-section__container container">
+            <div class="mbr-box mbr-box--stretched">
+				<div class="mbr-box__magnet mbr-box__magnet--center-left">
+					<div class="row">
+						<div class=" col-sm-6">
+							<div class="mbr-hero animated fadeInUp">
+								<h1 class="mbr-hero__text" style="color:orange;text-shadow:0px 10px 10px black;">We Simply Re-Store </h1>
+								<p class="mbr-hero__subtext"style="color:black;">Yeah...! You heard it right,We simply believe in<br> giving new life to old products</p>
+							</div>
+							<div class="mbr-buttons btn-inverse mbr-buttons--left"><a class="mbr-buttons__btn btn btn-lg btn-danger animated fadeInUp delay" data-toggle="modal" data-target="#modal" href="">Renew Your Product</a> </div>
+						</div>               
+				   </div>
+			   </div>
+            </div>
+		</div>
+    </div>
+        <div class="mbr-arrow mbr-arrow--floating text-center">
+            <div class="mbr-section__container container">
+                <a class="mbr-arrow__link" href="#next"><i class="glyphicon glyphicon-menu-down"></i></a>
+            </div>
+        </div>
+</section>
+						<div class="modal fade" id="modal" data-backdrop="static" >
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button class="close" data-dismiss="modal">&times;</button>
+										<h3 class="text-center">Fill your product details</h3>
+									</div>
+									<div class="modal-body">
+										<form name='myForm'  onSubmit="return formValidation();">
+											<p class="pull-right"><span style="color:red;font-size:15px;">*</span> Feilds Are Mandatory</p>
 											<div class="form-group">
-										<label>Location:</label> 
-											<select class="form-control" id="sclt3" name="sclt3" onchange="populate('sclt3','sclt4')">
-												<option style="color:gainsboro;">Select your Location</option>
-												<option value="chd">Chandigarh University</option>
-												<option value="khar">Kharar</option> 
-											</select>
-										</div>
-										<div class="form-group">
-											<label>Location details:</label> 
-											<select class="form-control" id="sclt4" name="sclt4"></select>
-										</div>
-										<div class="form-group">
-												<label>Product Description:</label> 
-												<textarea class="form-control" rows="4" placeholder="Enter The Product Description....(Note:if product is not listed(others) then describe product detail )"></textarea>
+												<label style="margin-top:20px;">Customer Name:<span style="color:red;font-size:15px;">*</span></label>
+												<input type="text" required="required" class="form-control" name="custom" placeholder="Enter your name">
 											</div>
-										<button class="btn btn-success" style="width:100px;">Submit</button>
-									</form>
+											<div class="form-group">
+												<label>Email-id:</label>
+												<input type="email"  class="form-control" name="email" placeholder="Enter your email-id">
+											</div>
+											<div class="form-group">
+												<label >Phone no:<span style="color:red;font-size:15px;">*</span><span data-target="#cap1" data-toggle="collapse" class=" glyphicon glyphicon-exclamation-sign"></span></label>
+												<div id="cap1" class="collapse"style="color:red;text-shadow:1px 1px 1px black;">For Contacting Purpose when dealer is arrived</div>
+												<input type="number"  min="0" required="required" class="form-control" name="phone" id="phone" placeholder="Enter your mobile no.">
+											</div>
+											<div class="form-group">
+												<label>Product Type:<span style="color:red;font-size:15px;">*</span></label> 
+												<select class="form-control" required="required" id="sclt1" name="sclt1" >
+													<option style="color:gainsboro;"></option>
+													<option value="Home">Home Appliances</option>
+													<option value="kitchen">Kitchen Appliances</option>
+													<option value="smart">Smart phones</option>
+													<option value="comp">Laptops,tablets & Desktops</option>
+													<option value="elect">Electronic Accessories</option>
+													<option value="bok">Books</option>
+													<option value="wat">Watches</option>
+													<option>others</option> 
+												</select>
+											</div>
+											<div class="form-group">
+											<label>Location:<span style="color:red;font-size:15px;">*</span></label> 
+												<select class="form-control" required="required" id="sclt3" name="sclt3" onchange="populate('sclt3','sclt4')">
+													<option style="color:gainsboro;"></option>
+													<option value="chd">Chandigarh University</option> 
+												</select>
+											</div>
+											<div class="form-group">
+												<label>Location details:<span style="color:red;font-size:15px;">*</span></label> 
+												<select class="form-control" required="required"  id="sclt4" name="sclt4">
+												</select>
+											</div>
+											<div class="form-group">
+													<label>Product Description:<span style="color:red;font-size:15px;">*</span></label> 
+													<textarea class="form-control" required="required" rows="4" placeholder="Enter The Product Description....(Note: please specify the product and then describe product detail )"></textarea>
+											</div>
+											<button class="btn btn-success" style="width:100px;">Submit</button>
+										</form>
+									</div>
 								</div>
-								</div>
-								</div>
-	</div>
-	</section>
-	</div>
-			<section  class="container-fluid" style="padding:10px;background:rgba(255,255,255,1);">
-	<div class="page-header">
-				<h1 style="color:black;" class=" text-center"><b>Eutilize does not believe in REpairing,we the future of REnewing</b></h1>
+							</div>
+						</div>
+<section  class="container-fluid" id="next"style="padding:10px;background:rgba(255,255,255,1);margin-top:20px;margin-bottom:100px;">
+		<div class="page-header">
+			<h1 style="color:black;" class=" text-center"><b>Eutilize does not believe in repairing,we the future of renewing</b></h1>
 		</div>
 		<div class="row">
 			<div class="col-md-4 col-md-offset-1">
-					<div style="color:black;">
-						<img src="images/renew.jpg" style="height:400px;" class="img-block center-block">
+				<div style="color:black;">
+					<img src="https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/website/images/renew.jpg" style="height:400px;" class="img-block center-block">
+				</div>
+			</div>
+				<div class="col-md-4 col-md-offset-2">
+					<div class="caption">
+						<h2 style="color:green;"><b>WHY Renew from us<strong>?</strong></b></h2>
+						<h4 style="line-height:25px;">We dont bielieve in miracle.<br>
+						Our simple moto is to transform the concept of repairing
+						the product into the renewing the product ,<br>which give our customer to avail the services 
+						which has been never thought.<br>That is why we bring the concept of renewing that give our 
+						coustomer an oppurtunity to avail a new life to their product</h4>
 					</div>
 				</div>
-					<div class="col-md-4 col-md-offset-2">
-				<div class="caption">
-							<h2 style="color:green;"><b>WHY Renew from us<strong>?</strong></b></h2>
-							<h4 style="line-height:25px;">We dont bielieve in miracle.<br>
-							Our simple moto is to transform the concept of repairing
-							the product into the renewing the product ,<br>which give our customer to avail the services 
-							which has been never thought.<br>That is why we bring the concept of renewing that give our 
-							coustomer an oppurtunity to give a new life to their product</h4>
-						</div>
-						</div>
-				</div>
-	</section>	
-	<section class="container-fluid" style= "background:black;opacity:0.9;">
-		<div class="col-md-4 " style="margin-top:20px;color:gainsboro;padding:2px;line-height:30px;height:500px;">
-	<div class="page-header text-center">
-		<h3>About</h3>
 		</div>
-<p style="color:gainsboro;" class="col-md-offset-1">Eutilize is India's online based secure company founded with the idea that unlock new value
-for customer and take the customer satisfaction to a whole new place .<br> A new idea of belief with renewing the product rather than repairing which 
-give our customer a whole new experience of service.</p>
+</section>	
+<section class="container-fluid" style= "background:black;opacity:0.9;">
+	<div class="col-md-4 " style="margin-top:20px;color:gainsboro;padding:2px;line-height:30px;height:500px;">
+		<div class="page-header text-center">
+			<h3 style="color:gainsboro;">About</h3>
 		</div>
+	<p style="color:gainsboro;" class="col-md-offset-1">Eutilize is India's online based secure website founded with the idea that unlock new value
+	for customer and take the customer satisfaction to a whole new place .<br> A new idea of belief with renewing the product rather than repairing which 
+	give our customer a whole new experience of service.<br>We also provide services which fulfill the daily need and demand of the customer.</p>
+	</div>
 		<div class=" col-md-3 col-sm-offset-1 " style="margin-top:20px;color:gainsboro;padding:2px;line-height:40px;">
 			<div class="page-header text-center">
-		<h3>Quick Links</h3>
+				<h3 style="color:gainsboro;">Quick Links</h3>
+			</div>
+			<ul class="col-sm-offset-1" style="color:gray;">
+				<li><h4><a href="about.html" style="color:gainsboro;">About Us</a><h4></li>
+				<li><h4><a href="contactus.html" style="color:gainsboro;">Contact Us</a><h4></li>
+				<li><h4><a href="support.html" style="color:gainsboro;">Customer Feedback</a><h4></li>
+			</ul>
 		</div>
-		<ul class="col-sm-offset-1" style="color:gray;">
-			<li><h4><a href="about.html" style="color:gainsboro;">About Us</a><h4></li>
-			<li><h4><a href="contactus.html" style="color:gainsboro;">Contact Us</a><h4></li>
-			<li><h4><a href="support.html" style="color:gainsboro;">Customer Feedback</a><h4></li>
-		</ul>
+		<div class="col-md-3 col-md-offset-1" style="margin-top:20px;color:gainsboro;padding:2px;line-height:40px;">
+			<div class="page-header text-center">
+				<h3 style="color:gainsboro;">Details</h3>
+			</div>
+			<ul  style="color:gray;">
+				<li style="color:gainsboro;"><h4 id="h">Register Address:<br>LC Block-A Room No.714 Chandigarh University<br> Gharuan , Punjab<h2></li>
+				<li style="color:gainsboro;"><h4 id="h">Email-id:<br>xyz@gmail.com<h4></li>
+				<li style="color:gainsboro;"><h4 id="h">Mobile No:<br>9876543210<h4></li>
+				<li style="color:gainsboro;"><h4 id="h">Whatsapp No:<br>9876543210<h4></li>
+			</ul>
 		</div>
-		
-			<div class="col-md-3 col-md-offset-1" style="margin-top:20px;color:gainsboro;padding:2px;line-height:40px;">
-		<div class="page-header text-center">
-		<h3>Details</h3>
-		</div>
-		<ul  style="color:gray;">
-			<li style="color:gainsboro;"><h4 id="h">Register Address:<br>LC Block-A Room No.714 Chandigarh University<br> Gharuan , Punjab<h2></li>
-			<li style="color:gainsboro;"><h4 id="h">Email-id:<br>xyz@gmail.com<h4></li>
-			<li style="color:gainsboro;"><h4 id="h">Mobile No:<br>9876543210<h4></li>
-			<li style="color:gainsboro;"><h4 id="h">Whatsapp No:<br>9876543210<h4></li>
-		</ul>
-		</div>
-		
-	</section>
+</section>
 </body>
 </html>
