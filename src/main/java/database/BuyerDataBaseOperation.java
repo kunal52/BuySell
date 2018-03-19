@@ -11,7 +11,7 @@ public class BuyerDataBaseOperation {
 	
 	private static String getAddItemQuery()
 	{
-		String string="INSERT INTO `BuyItems`(`id`, `product_id`, `seller_id`, `buyer_id`, `is_sold`, `sold_by_this`) VALUES (?,?,?,?,?,?)";
+		String string="INSERT INTO `BuyItems`(`id`, `product_id`, `seller_id`, `buyer_id`,`buyer_address`, `is_sold`, `sold_by_this`) VALUES (?,?,?,?,?,?,?)";
 		return string;
 	}
 	
@@ -49,8 +49,10 @@ public class BuyerDataBaseOperation {
 			prepareStatement.setString(2, i.getItem().getId());
 			prepareStatement.setString(3, i.getItem().getContact_id());
 			prepareStatement.setString(4, buyer.getId());
-			prepareStatement.setString(5, "false");
+			prepareStatement.setString(5, i.getBuyer().getAddress());
 			prepareStatement.setString(6, "false");
+			prepareStatement.setString(7, "false");
+			
 			
 			prepareStatement.executeUpdate();
 			

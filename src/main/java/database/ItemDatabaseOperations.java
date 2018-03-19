@@ -260,7 +260,7 @@ public class ItemDatabaseOperations {
 		List<String>list=new ArrayList<>();
 		try {
 			
-			preparedStatement=connection.prepareStatement("select name from Items where name like '%"+query+"%"+"'" +"and isverified = true");
+			preparedStatement=connection.prepareStatement("select name from Items where name like '"+query+"%"+"'" +"and isverified = true");
 			ResultSet rs=preparedStatement.executeQuery();
 			while(rs.next())
 			{

@@ -7,18 +7,12 @@
 <title>
 Buyer
 </title>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115532154-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-115532154-1');
-</script>
-
-
+<meta name="description" content="Buying Things = Buying Memories.">
+  <meta name="keywords" content="eutilize,reuse,renew,sell,buy,product,reutilize,reutilise,order,new,buyer,items">
+  <meta name="author" content="K Nithin Kumar">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Eutilize.com">
+  <link rel="shortcut icon" href="https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/website/images/cart.png"  type="image/x-icon">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/bootstrap.css">
 <script src="js/jquery.js"></script>
@@ -38,24 +32,13 @@ Buyer
 	}
 	body{
 		background-color:#E6E6FA;
-	}
-
+	}	
+.img-thumbnail h4 {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
 </style>
-<script>
-$(document).ready(function() {
-    var aTags = ["Music System","Heater","Fan","Iron","Gyser","Induction","Rice Maker","Toaster","Kettle","Mixer","Grinder","Microwave Oven","Mobile Phones","Watches","Laptops","Tablets","Desktops","Books","Ear Phones","Power Bank","Mouse","Pendrives","Selfiesticks","Smartwatches","Torch"];
-    $( "#txt_items" ).autocomplete({
-		source: function(req, responseFn) {
-        var re = $.ui.autocomplete.escapeRegex(req.term);
-        var matcher = new RegExp( "^" + re, "i" );
-        var a = $.grep( aTags, function(item,index){
-            return matcher.test(item);
-        });
-        responseFn( a );
-		}
-	});
-});
-</script>
 </head>
 <body >
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -110,20 +93,22 @@ $(document).ready(function() {
 									<h3>Order us</h3>
 								</div>
 								<div class="modal-body">
-								<strong><h4><b>You can also order Grossary and Stationery Products from our website by simply using our whatsapp number</b></h4></strong>
+								<strong><h4><b>You can also order Grossary and Stationery Products from our website by simply using our mobile number</b></h4></strong>
 									<strong><h4>NOTE:</h4></strong>
 									<li class="text-center">Items less than &#8377;10 ROOM DELIVERY costs &#8377;1</li>
 									<li class="text-center">Items greater than &#8377;10 less than &#8377;20 ROOM DELIVERY costs &#8377;2</li>
 									<li class="text-center">Items greater than &#8377;20 and less than &#8377;50 ROOM DELIVERY costs &#8377;3</li>
 									<li class="text-center">Items greater than &#8377;50 ROOM DELIVERY costs &#8377;5</li>
 								</div>
-								<div class="caption"><h4><strong>Whatsapp number - 7783860428</strong></h4></div>
+								<div class="caption"><h4><strong>Mobile Number - 7783860428</strong></h4></div>
+								<li>You can also whatsapp us</li>
+								<li>Paytm Available</li>
 							</div>
 						</div>
 					</div>
   <table class="table table-bordered" style="spacing:30px;">
-      <tr class="info">
-        <th class="text-center"><b>ALL PRODUCTS</b></th>
+     <tr class="info">
+        <th class="text-center"><b><a href="buy.jsp">ALL PRODUCTS</a></b></th>
       </tr>
     <tbody>
       <tr>
@@ -158,11 +143,12 @@ $(document).ready(function() {
 
 
 <% ItemDatabaseOperations items=new ItemDatabaseOperations();
-	
-   int pageSize=12;
-   int offset=0;
-   int pageNo=0;
-   String type="all";
+int pageSize=12;
+int offset=0;
+int pageNo=0;
+String type="all";
+List<Item>list;
+
 	try
 	{
   		 pageNo=Integer.parseInt(request.getParameter("page"))-1;
@@ -178,25 +164,48 @@ $(document).ready(function() {
 	{
 		 type="all";
 	}
-   
-   List<Item>list=items.getItems(pageSize, offset, type);
+	if(request.getParameter("txt_items")!=null)
+	{
+		
+		list=items.getItemsWithSearch(request.getParameter("txt_items"));
+			
+	}
+	else
+	{
+	
+   list=items.getItems(pageSize, offset, type);
+	}
+	
+	
+	if(list.size()==0)
+	{
+		%>
+		
+		
+		<H4 class="text-center" style="margin-top:100px;">No Items Found</H4>
+		
+		<% 
+	}
+	
+	else
+	
    for(Item i:list)
    {
 	   String id="https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/productImage/"+i.getId()+".jpg";
+
 %>
 
 <a href="buyer.jsp?id=<%=i.getId()%>">
         <div class="col-md-3" style="margin-top:50px;">
-            <div class="thumbnail">
-                <img src="<%=id %>" class="img-responsive"  style="height:200px;min-width:200px;">
+            <div class="img-thumbnail">
+                <img src="<%=id %>" class="img-responsive"  style="min-height:180px;max-height:180px;min-width:200px;max-width:200px;">
 				<div class="caption">
-					<h4 class="pull-right"  >&#8377; <%= i.getPrice() %></h4>
 					<h4 style="color:blue;"><%= i.getName() %></h4>
+					<h4 >Price:&#8377; <%= i.getPrice() %></h4>
 				</div>
             </div>
         </div>
 </a>
-
 <%} %>
 
 </div>
@@ -231,20 +240,20 @@ $(document).ready(function() {
 				<h3>Quick Links</h3>
 			</div>
 			<ul class="col-sm-offset-1" style="color:gray;">
-				<li><h4><a href="about.html" style="color:gainsboro;">About Us</a><h4></li>
+				<li><h4><a href="about.html" style="color:gainsboro;">About</a><h4></li>
 				<li><h4><a href="contactus.html" style="color:gainsboro;">Contact Us</a><h4></li>
-				<li><h4><a href="support.html" style="color:gainsboro;">Customer Feedback</a><h4></li>
+				<li><h4><a href="support.html" style="color:gainsboro;">Support</a><h4></li>
 			</ul>
 		</div>
-		<div class="col-md-3 col-md-offset-1" style="margin-top:20px;color:gainsboro;padding:2px;line-height:40px;">
+		<div class="col-md-3 col-md-offset-1" style="margin-top:20px;color:gainsboro;padding:2px;line-height:50px;">
 		<div class="page-header text-center">
 		<h3>Details</h3>
 		</div>
 		<ul  style="color:gray;">
 			<li style="color:gainsboro;"><h4 id="h">Register Address:<br>LC Block-A Room No.714 Chandigarh University<br> Gharuan , Punjab<h2></li>
-			<li style="color:gainsboro;"><h4 id="h">Email-id:<br>xyz@gmail.com<h4></li>
-			<li style="color:gainsboro;"><h4 id="h">Mobile No:<br>9876543210<h4></li>
-			<li style="color:gainsboro;"><h4 id="h">Whatsapp No:<br>9876543210<h4></li>
+			<li style="color:gainsboro;"><h4 id="h">Email-id:<br>contact@eutilize.com<h4></li>
+			<li style="color:gainsboro;"><h4 id="h">Mobile No:<br>7837629907<h4></li>
+			<li style="color:gainsboro;"><h4 id="h">Whatsapp No:<br>7018820603<h4></li>
 		</ul>
 		</div>
 </section>
