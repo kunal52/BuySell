@@ -216,6 +216,7 @@ List<Item>list;
 			<li class="active"><a href="buy.jsp?page=<%=pageNo-1%>">previous</a></li>
 
 			<%	
+			
 			System.out.print(Math.ceil(ItemDatabaseOperations.getTotalItems()/12));
 			for(int i=0;i<=Math.ceil(ItemDatabaseOperations.getTotalItems()/12);i++)
 			{

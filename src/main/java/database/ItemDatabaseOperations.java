@@ -6,12 +6,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-
+import Reusability.models.Contact;
 import Reusability.models.Item;
+import mailapi.SendEmail;
 import utils.Constants;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class ItemDatabaseOperations {
 
+	Logger logger=LogManager.getLogger(ItemDatabaseOperations.class.getName());
 	
 	private String createInsertQuery()
 	{
@@ -66,14 +70,18 @@ public class ItemDatabaseOperations {
 			preparedStatement.setString(10, "false");
 			preparedStatement.executeUpdate();
 			
+			UserDatabaseOperation u=new UserDatabaseOperation();
+			Contact c=u.getUser(item.getContact_id());
+			
 			try {
+				
+				SendEmail.sendEmailItemSubmitted(c.getEmail(), c.getF_name(), item.getName(), itemid);
+				
 				preparedStatement.close();
 		    	connection.close();
 		    	jdbcConnection.disConnect();
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println("ERRROR");
-		
 		}
 
 			
@@ -84,14 +92,11 @@ public class ItemDatabaseOperations {
 	    	jdbcConnection.disConnect();
 	    	return item;
 	    } catch (final SQLException e) {
-	        // TODO Auto-generated catch block
 	        e.printStackTrace();
 	    }
 	}
 			
-			return item;
-		
-			
+			return item;		
 	}
 	
 
@@ -166,6 +171,10 @@ public class ItemDatabaseOperations {
 		
 		while(rs.next())
 		{
+			
+
+			logger.error("Error");
+			
 			items.add(new Item(rs.getString(1),
 							rs.getString(2),
 							rs.getString(3),

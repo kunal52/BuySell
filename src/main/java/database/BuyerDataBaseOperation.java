@@ -6,6 +6,7 @@ import java.util.UUID;
 
 import Reusability.models.Contact;
 import Reusability.models.ItemBuyer;
+import mailapi.SendEmail;
 
 public class BuyerDataBaseOperation {
 	
@@ -58,8 +59,15 @@ public class BuyerDataBaseOperation {
 			
 			prepareStatement.closeOnCompletion();
 			
+			SendEmail.sendEmailOrderSuccessFully(i.getBuyer().getEmail(), i.getBuyer().getName(), i.getItem().getId(), tid);
+
+			
 			connection.close();
 			jdbcConnection.disConnect();
+			
+			
+			
+					
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

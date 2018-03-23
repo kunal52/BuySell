@@ -7,5 +7,4 @@ public interface DatabaseCredentials {
 	String password2 = "spider";
 	String password="GQDQ8qa5BAHo";
 	
-
 }

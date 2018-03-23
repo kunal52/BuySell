@@ -1,3 +1,4 @@
+<%@page import="mailapi.SendEmail"%>
 <%@page import="database.ItemDatabaseOperations"%>
 <%@page import="Reusability.models.ItemBuyer"%>
 <%@page import="database.BuyerDataBaseOperation"%>
@@ -51,8 +52,10 @@
 		b.setPhone_no(phone);
 		b.setAddress(address);
 		ItemDatabaseOperations itemDatabaseOperations=new ItemDatabaseOperations();
-		BuyerDataBaseOperation.addBuyItemTransaction(new ItemBuyer(b,itemDatabaseOperations.getItem(product_id)));
+		String tid=BuyerDataBaseOperation.addBuyItemTransaction(new ItemBuyer(b,itemDatabaseOperations.getItem(product_id)));
 	%>
+	
+	
 	
 	
 	<link href="success/suc.css" rel="stylesheet" id="bootstrap-css">
