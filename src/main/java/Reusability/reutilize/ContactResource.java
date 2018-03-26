@@ -29,7 +29,6 @@ public class ContactResource {
 		return user.getUser(id);
 	}
 	
-	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
@@ -42,9 +41,7 @@ public class ContactResource {
 			} catch (SQLException e) {
 				return new Contact();
 			}
-		
-			
-		
+
 	}
 	
 }

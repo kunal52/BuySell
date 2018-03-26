@@ -32,6 +32,9 @@ Contact Us
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Eutilize.com">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#2c2c2c">
+  <meta name="msapplication-navbutton-color" content="#2c2c2c">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#2c2c2c">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:700,400&subset=cyrillic,latin,greek,vietnamese">
   <link rel="stylesheet" href="assets/web/assets/mobirise-icons-bold/mobirise-icons-bold.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
@@ -41,6 +44,7 @@ Contact Us
   <link rel="stylesheet" href="css/bootstrap.css">
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.js"></script>
+  <script src="js/sweetalert.min.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -51,10 +55,18 @@ Contact Us
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="index.html"><img src="https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/website/images/1111.png" width="160px" height="43px" style="margin-top:-9px;"></a>
+      <a class="navbar-brand" href="https://www.eutilize.com"><img src="https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/website/images/1111.png" width="160px" height="43px" style="margin-top:-9px;"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
+	  <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">Product<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a  href="sell.html">Sell A Product</a>	</li>
+					<li><a  href="buy.jsp">Buy A Product</a></li>
+					<li><a  href="renew.html" onclick="sweetAlert('Sorry', 'Service will be opened soon', 'error');" class="" data-toggle="modal" href='#modale-id'>Renew Product</a></li>
+					<li><a  href="recycle.html" onclick="sweetAlert('Sorry', 'Service will be opened soon', 'error');" class="" data-toggle="modal" href='#modale-id'>Recycle Product</a></li>
+				</ul>
+			</li>
         <li><a href="about.html">About</a></li>
         <li><a href="contactus.html">Contact us</a></li>
         <li><a href="support.html">Support</a></li>
@@ -74,6 +86,9 @@ Contact Us
 								<p class="mbr-hero__subtext" style="color:white;">We love to hear any Queries and problem regarding anything related to our services.Our 24/7 team is always ready to help you out.</p>
 							</div>
 						</div>
+						<div data-WRID="WRID-152180887166265409" data-widgetType="Push Content"  data-class="affiliateAdsByFlipkart" height="600" width="120" class="pull-right">
+						</div>
+						<script async src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script>
 					</div>
 				</div>
 			</div>
@@ -104,7 +119,6 @@ Contact Us
                         <h3 class="mbr-header__text"style="margin-top:-10px;">Call Us</h3>
 							<div class="mbr-header__text" style="margin-top:10px;line-height:30px;">
 								<strong><li>7837629907</li></strong>
-								<strong><li>7018820603</li></strong>
 							</div>	
                     </div>
                 </div>  
@@ -117,7 +131,6 @@ Contact Us
                     <div class="mbr-header mbr-header--reduce mbr-header--center mbr-header--wysiwyg">
                         <h3 class="mbr-header__text">Message Us</h3>
 						<div class="mbr-header__text" style="margin-top:10px;line-height:30px;">
-								<strong><li>7783860428</li></strong>
 								<strong><li>7901775313</li></strong>
 							</div>
                     </div>
@@ -132,7 +145,7 @@ Contact Us
                     <div class="mbr-header mbr-header--reduce mbr-header--center mbr-header--wysiwyg">
                         <h3 class="mbr-header__text">Email Us</h3>
 						<div style="margin-top:10px;font-size:20px;">
-								<strong>contact@eutilize.com</strong>
+								<strong>support@eutilize.com</strong>
 							</div>
                     </div>
                 </div>
@@ -145,7 +158,6 @@ Contact Us
                     <div class="mbr-header mbr-header--reduce mbr-header--center mbr-header--wysiwyg">
                         <h3 class="mbr-header__text">Whatsapp Us</h3>
 						<div class="mbr-header__text" style="margin-top:10px;line-height:30px;">
-								<strong><li>7837629907</li></strong>
 								<strong><li>7018820603</li></strong>
 							</div>
                     </div>
@@ -178,10 +190,11 @@ Contact Us
 				<h3>Details</h3>
 			</div>
 			<ul  style="color:gray;">
-				<li style="color:gainsboro;"><h4 id="h">Register Address:<br>LC Block-A Room No.714 Chandigarh University<br> Gharuan , Punjab<h2></li>
-				<li style="color:gainsboro;"><h4 id="h">Email-id:<br>contact@eutilize.com<h4></li>
-				<li style="color:gainsboro;"><h4 id="h">Mobile No:<br>7837629907<h4></li>
-				<li style="color:gainsboro;"><h4 id="h">Whatsapp No:<br>7018820603<h4></li>
+				<li style="color:gainsboro;"><h4 id="h">Address:<br>Chandigarh University<br> Gharuan , Punjab<h2></li>
+				<li style="color:gainsboro;"><h4 id="h">Email-id:<br>support@eutilize.com<h4></li>
+				<li style="color:gainsboro;"><h4 id="h">Mobile No:<br>+91 7837629907<h4></li>
+				<li style="color:gainsboro;"><h4 id="h">Whatsapp No:<br>+91 7018820603<h4></li>
+
 			</ul>
 		</div>
 </section>

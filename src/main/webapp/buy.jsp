@@ -14,6 +14,9 @@ Buyer
   <meta name="generator" content="Eutilize.com">
   <link rel="shortcut icon" href="https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/website/images/cart.png"  type="image/x-icon">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2c2c2c">
+  <meta name="msapplication-navbutton-color" content="#2c2c2c">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#2c2c2c">
 <link rel="stylesheet" href="css/bootstrap.css">
 <script src="js/jquery.js"></script>
 <script src="js/w3.js"></script>
@@ -38,7 +41,95 @@ Buyer
   text-overflow: ellipsis;
   overflow: hidden;
 }
+	input[type=number]::-webkit-inner-spin-button, 
+	input[type=number]::-webkit-outer-spin-button { 
+	-webkit-appearance: none;
+    appearance: none;
+    margin: 0;  
+	}
+	input[type=number] {
+    -moz-appearance:textfield;
+	}
+.col-item
+{
+    border: 1px solid #E1E1E1;
+    border-radius: 5px;
+    background: #FFF;
+}
+.col-item .photo img
+{
+    margin: 0 auto;
+    width: 100%;
+}
+
+.col-item .info
+{
+    padding-left: 10px;
+    border-radius: 0 0 5px 5px;
+    margin-top: 1px;
+}
+
+.col-item:hover .info {
+    background-color: #F5F5DC;
+}
+.col-item .price
+{
+    float: left;
+    margin-top: 5px;
+}
+
+.col-item .price h5
+{
+    line-height: 2px;
+    margin: 0;
+}
+
+.price-text-color
+{
+    color: #219FD1;
+}
+.price {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
 </style>
+<script>
+function formValidation()  
+{   
+ var h = myForm.myFileInput.value;
+  if(h=="")																
+ {
+
+return false;
+ }
+
+var phone = document.forms["myForm"]["phone"].value;
+var phoneNum = phone.replace(/[^\d]/g, '');
+if( phoneNum.length == "")
+{
+return true; 
+}
+ else if (phoneNum.charAt(0)!="9" && phoneNum.charAt(0)!="8" && phoneNum.charAt(0)!="7" && phoneNum.charAt(0)!="0")
+           {
+                alert("enter the correct number");
+                return false
+           }
+		   else if(phoneNum < 0)					
+		   {
+		    alert("number cant be negative ");
+                return false
+		   }
+else if(phoneNum.length > 9 && phoneNum.length < 11 ) {  
+return true; 
+} 
+else
+{
+alert("enter the valid phone number");
+return false;
+}
+}
+</script>
 </head>
 <body >
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -49,10 +140,11 @@ Buyer
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="index.html"><img src="https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/website/images/1111.png" width="160px" height="43px" style="margin-top:-9px;"></a>
+      <a class="navbar-brand" href="https://www.eutilize.com"><img src="https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/website/images/1111.png" width="160px" height="43px" style="margin-top:-9px;"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
+	  	<li><a href="sell.html">Sell A Product</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contactus.html">Contact us</a></li>
         <li><a href="support.html">Support</a></li>
@@ -65,8 +157,14 @@ Buyer
 	<header style="margin-top:120px;margin-bottom:70px; ">
 		<div class="text-center">
 			<b><h1 style="color:white;font-family:Arial Black, Gadget, sans-serif ;text-shadow:0px 5px 5px black;">Buying Things = Buying Memories</h1></b>
-			 <a href="#modal" ><button class="btn btn-danger btn-lg" style="margin-left:10px; margin-top:20px;margin-bottom:10px;" data-toggle="modal" data-backdrop="static" data-target="#modal">Order Any Home Product</button></a>
+			 <a href="#modal" ><button class="btn btn-danger btn-lg" style=" margin-top:20px;margin-bottom:10px;" data-toggle="modal" data-backdrop="static" data-target="#modal">Notify Any Product</button></a>
 		</div>
+		<div data-WRID="WRID-152180887166265409" data-widgetType="Push Content"  data-class="affiliateAdsByFlipkart" height="600" width="120" class="col-md-1">
+		</div>
+		<script async src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script>
+<div data-WRID="WRID-152180886549857847" data-widgetType="Push Content"  data-class="affiliateAdsByFlipkart" height="250" width="300" class="col-md-offset-10">
+</div>
+<script async src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script>
 	</header>
 </section>
 </div>
@@ -79,34 +177,61 @@ Buyer
 					<button class="btn btn-primary btn-lg" ><i class="glyphicon glyphicon-search" ></i></button>
 				</div> 
 			</div>
+<div data-WRID="WRID-152180887166265409" data-widgetType="Push Content"  data-class="affiliateAdsByFlipkart" height="600" width="120" class="pull-right">
+</div>
+<script async src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script>
+
 		</div>
 </form>
-
-
 <section class="container-fluid" style="padding-bottom:100px;">
-<aside class="col-md-3 text-center" style="margin-top:50px;">
+<aside class="col-md-3" style="margin-top:50px;">
 					<div class="modal fade" id="modal">
 						<div class="modal-dialog">
 							<div class="modal-content">
-								<div class="modal-header">
-									<button class="close" data-dismiss="modal">&times;</button>
-									<h3>Order us</h3>
+								<div class="modal-header text-center">
+								<button class="close" data-dismiss="modal">&times;</button>
+									<strong><h3>Fill your product details</h3></strong>
+									<strong class=" pull-left">NOTE:</strong><br>
+								<li class="caption" >
+								Submit Your Product what you need we will notify you when product is available</li>
+								<li>you can order any new or old products</li>
 								</div>
 								<div class="modal-body">
-								<strong><h4><b>You can also order Grossary and Stationery Products from our website by simply using our mobile number</b></h4></strong>
-									<strong><h4>NOTE:</h4></strong>
-									<li class="text-center">Items less than &#8377;10 ROOM DELIVERY costs &#8377;1</li>
-									<li class="text-center">Items greater than &#8377;10 less than &#8377;20 ROOM DELIVERY costs &#8377;2</li>
-									<li class="text-center">Items greater than &#8377;20 and less than &#8377;50 ROOM DELIVERY costs &#8377;3</li>
-									<li class="text-center">Items greater than &#8377;50 ROOM DELIVERY costs &#8377;5</li>
+									<form name='myForm' id="f" action="notifyme.jsp"  onSubmit="return formValidation();" method="post" enctype="multipart/form-data" ">
+									<p class="pull-right"><span style="color:red;font-size:15px;">*</span> Feilds Are Mandatory</p>
+										<div class="form-group">
+											<label style="margin-top:20px;">Customer Name:<span style="color:red;font-size:15px;">*</span></label>
+											<input type="text"  required="required" class="form-control" name="username" id="name" placeholder="Enter your name">
+										</div>
+										<div class="form-group">
+											<label>Product Name:<span style="color:red;font-size:15px;">*</span></label>
+											<input type="text"  required="required" class="form-control" name="pname" id="pname"placeholder="Enter your product name">
+										</div>
+										<div class="form-group">
+										<label>Email-id:<span style="color:red;font-size:15px;">*</span></label>
+										<input type="email"  required="required" class="form-control" name="email" id="email" placeholder="Enter your Email-id">
+										</div>
+										<div class="form-group">
+										<label >Phone no:<span style="color:red;font-size:15px;">*</span><span data-target="#cap1" data-toggle="collapse" class=" glyphicon glyphicon-exclamation-sign"></span></label>
+										<div id="cap1" class="collapse"style="color:red;text-shadow:1px 1px 1px black;">For Contacting Purpose when product is ordered</div>
+										<input  name="somename"
+    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+    type = "number"
+    maxlength = "10"  min="0" required="required" class="form-control" id="phone" name="phone" pattern="[789][0-9]{9}"  placeholder="Enter your mobile number">
+										</div>
+										<div class="form-group">
+											<label>Product Description:<span style="color:red;font-size:15px;">*</span></label> 
+											<textarea class="form-control" name="description" rows="4" placeholder="Enter The Product Description...."></textarea>
+										</div>
+										
+										<button class="btn btn-success"  style="width:100px;">Submit</button>
+										
+									</form>
 								</div>
-								<div class="caption"><h4><strong>Mobile Number - 7783860428</strong></h4></div>
-								<li>You can also whatsapp us</li>
-								<li>Paytm Available</li>
-							</div>
 						</div>
 					</div>
-  <table class="table table-bordered" style="spacing:30px;">
+					</div>
+  <table class="table table-bordered text-center" style="spacing:30px;">
      <tr class="info">
         <th class="text-center"><b><a href="buy.jsp">ALL PRODUCTS</a></b></th>
       </tr>
@@ -138,9 +263,11 @@ Buyer
       </tr>
     </tbody>
   </table>
+<div data-WRID="WRID-152180887066438132" data-widgetType="Push Content"  data-class="affiliateAdsByFlipkart" height="90" width="728">
+</div>
+<script async src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script>
 </aside>
 <div class="container col-md-9" >
-
 
 <% ItemDatabaseOperations items=new ItemDatabaseOperations();
 int pageSize=12;
@@ -194,36 +321,71 @@ List<Item>list;
 	   String id="https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/productImage/"+i.getId()+".jpg";
 
 %>
-
-<a href="buyer.jsp?id=<%=i.getId()%>">
-        <div class="col-md-3" style="margin-top:50px;">
-            <div class="img-thumbnail">
-                <img src="<%=id %>" class="img-responsive"  style="min-height:180px;max-height:180px;min-width:200px;max-width:200px;">
-				<div class="caption">
-					<h4 style="color:blue;"><%= i.getName() %></h4>
-					<h4 >Price:&#8377; <%= i.getPrice() %></h4>
-				</div>
-            </div>
-        </div>
-</a>
+<a href="buyer.jsp?id=<%=i.getId()%>" >
+ <div class="col-sm-3" style="margin-top:50px;">
+                            <div class="col-item">
+                                <div class="photo">
+                                    <img src="<%=id %>" class="img-responsive" alt="product image" style="min-height:200px;max-height:200px;" />
+                                </div>
+                                <div class="info">
+                                    <div class="row">
+                                        <div class="price col-md-11">
+                                            <h4><%= i.getName() %></h4>
+                                            <h4 class="price-text-color">Price:&#8377; <%= i.getPrice() %></h4>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+						</a>
 <%} %>
 
 </div>
-</section>		
+</section>	
 <section  class="container-fluid">								
 	<div class="text-center">											
 		<ul class="pagination">
-			<li class="active"><a href="buy.jsp?page=<%=pageNo-1%>">previous</a></li>
+		
+	<%
+				
+				if(pageNo>=1)
+				{
+					
+					%>
+					
+					<li class="active"><a href="buy.jsp?page=<%=pageNo%>" onclick="displayData(11,1,0,'A')" onmouseover="displayData(11,1,0,'A')" style="cursor: pointer;">previous</a></li>
+						
+					<% 
+					
+				}
+			
+			%>
+			
 
 			<%	
-			
-			System.out.print(Math.ceil(ItemDatabaseOperations.getTotalItems()/12));
-			for(int i=0;i<=Math.ceil(ItemDatabaseOperations.getTotalItems()/12);i++)
+			int totalPages=(int)Math.ceil(ItemDatabaseOperations.getTotalItems()/12);
+			for(int i=0;i<=totalPages;i++)
 			{
 			%>
 			<li><a href="buy.jsp?page=<%=i+1%>"><%=i+1%></a></li>
-				<%} %>
-			<li class="active"><a href="buy.jsp?page=<%=pageNo+1%>">Next</a></li>
+			
+			<%}
+			
+			if(pageNo<totalPages)
+			{
+				
+				%>
+				
+				<li class="active"><a href="buy.jsp?page=<%=pageNo+2%>" onclick="displayData(11,1,0,'A')" onmouseover="displayData(11,1,0,'A')" style="cursor: pointer;">Next</a></li>
+				
+				<% 
+			}
+			
+			%>
+					
+			
 		</ul>
 	</div>
 </section>
@@ -251,10 +413,10 @@ List<Item>list;
 		<h3>Details</h3>
 		</div>
 		<ul  style="color:gray;">
-			<li style="color:gainsboro;"><h4 id="h">Register Address:<br>LC Block-A Room No.714 Chandigarh University<br> Gharuan , Punjab<h2></li>
-			<li style="color:gainsboro;"><h4 id="h">Email-id:<br>contact@eutilize.com<h4></li>
-			<li style="color:gainsboro;"><h4 id="h">Mobile No:<br>7837629907<h4></li>
-			<li style="color:gainsboro;"><h4 id="h">Whatsapp No:<br>7018820603<h4></li>
+			<li style="color:gainsboro;"><h4 id="h">Address:<br>Chandigarh University<br> Gharuan , Punjab<h2></li>
+			<li style="color:gainsboro;"><h4 id="h">Email-id:<br>support@eutilize.com<h4></li>
+			<li style="color:gainsboro;"><h4 id="h">Mobile No:<br>+91 7837629907<h4></li>
+			<li style="color:gainsboro;"><h4 id="h">Whatsapp No:<br>+91 7018820603<h4></li>
 		</ul>
 		</div>
 </section>

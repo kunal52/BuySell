@@ -33,6 +33,9 @@ Seller
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Eutilize.com">
   <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=0">
+    <meta name="theme-color" content="#2c2c2c">
+  <meta name="msapplication-navbutton-color" content="#2c2c2c">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#2c2c2c">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:700,400&subset=cyrillic,latin,greek,vietnamese">
   <link rel="stylesheet" href="assets/web/assets/mobirise-icons-bold/mobirise-icons-bold.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
@@ -130,10 +133,11 @@ function readURL(input) {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="index.html"><img src="https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/website/images/1111.png" width="160px" height="43px" style="margin-top:-9px;"></a>
+      <a class="navbar-brand" href="https://www.eutilize.com"><img src="https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/website/images/1111.png" width="160px" height="43px" style="margin-top:-9px;"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
+        <li><a href="buy.jsp">Buy A Product</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contactus.html">Contact us</a></li>
         <li><a href="support.html">Support</a></li>
@@ -153,7 +157,10 @@ function readURL(input) {
 								<p class="mbr-hero__subtext">Trust us...! We are providing a platform to experience the best selling services</p>
 							</div>
 						<div class="mbr-buttons btn-inverse mbr-buttons--left"><a class="mbr-buttons__btn btn btn-lg btn-danger animated fadeInUp delay" data-toggle="modal" data-target="#modal" href="">Sell Your Product</a> </div>
-						</div>               
+						</div> 
+						<div data-WRID="WRID-152180887066438132" data-widgetType="Push Content"  data-class="affiliateAdsByFlipkart" height="90" width="728" class="pull-right">
+						</div>
+						<script async src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script>
 					</div>
 				</div>
             </div>
@@ -208,7 +215,10 @@ function readURL(input) {
 										<div class="form-group">
 										<label >Phone no:<span style="color:red;font-size:15px;">*</span><span data-target="#cap1" data-toggle="collapse" class=" glyphicon glyphicon-exclamation-sign"></span></label>
 										<div id="cap1" class="collapse"style="color:red;text-shadow:1px 1px 1px black;">For Contacting Purpose when product is ordered</div>
-										<input type="number" min="0" required="required" class="form-control" id="phone" name="phone" pattern="[789][0-9]{9}"  placeholder="Enter your mobile number">
+										<input  name="somename"
+    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+    type = "number"
+    maxlength = "10"  min="0" required="required" class="form-control" id="phone" name="phone" pattern="[789][0-9]{9}"  placeholder="Enter your mobile number">
 										</div>
 										
 										<div class="form-group">
@@ -252,6 +262,10 @@ function readURL(input) {
 						<h4 style="line-height:25px;">Well its not about only selling the product we are giving a platform 
 						<br>where you can get assurance of real buyer and quality service<br> with maximum value of product within a finger tip.</h4>
 					</div>
+					<div data-WRID="WRID-152180887166265409" data-widgetType="Push Content"  data-class="affiliateAdsByFlipkart" height="600" width="120"class="text-center">
+					</div>
+					<script async src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script>
+
 				</div>
 		</div>
 </section>		
@@ -274,15 +288,16 @@ function readURL(input) {
 				<li><h4><a href="support.html" style="color:gainsboro;">Support</a><h4></li>
 			</ul>
 		</div>		
-		<div class="col-md-3 col-md-offset-1" style="margin-top:20px;color:gainsboro;padding:2px;line-height:50px;">
+		<div class="col-md-3 col-md-offset-1" style="margin-top:20px;color:gainsboro;padding:2px;line-height:40px;">
 			<div class="page-header text-center">
 				<h3 style="color:gainsboro;">Details</h3>
 			</div>
 			<ul  style="color:gray;">
-				<li style="color:gainsboro;"><h4 id="h">Register Address:<br>LC Block-A Room No.714 Chandigarh University<br> Gharuan , Punjab<h2></li>
-				<li style="color:gainsboro;"><h4 id="h">Email-id:<br>contact@eutilize.com<h4></li>
+				<li style="color:gainsboro;"><h4 id="h">Address:<br>Chandigarh University<br> Gharuan , Punjab<h2></li>
+				<li style="color:gainsboro;"><h4 id="h">Email-id:<br>support@eutilize.com<h4></li>
 				<li style="color:gainsboro;"><h4 id="h">Mobile No:<br>7837629907<h4></li>
 				<li style="color:gainsboro;"><h4 id="h">Whatsapp No:<br>7018820603<h4></li>
+				
 			</ul>
 		</div>
 </section>

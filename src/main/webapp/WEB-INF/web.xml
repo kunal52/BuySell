@@ -31,6 +31,11 @@
   
   <display-name>Eutilize.com</display-name>
      
+     
+      <error-page>
+    <error-code>404</error-code>
+    <location>/404.html</location>
+  </error-page>
    
 
         <context-param>

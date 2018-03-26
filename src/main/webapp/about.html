@@ -33,6 +33,9 @@ About us
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Eutilize.com">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#2c2c2c">
+  <meta name="msapplication-navbutton-color" content="#2c2c2c">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#2c2c2c">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:700,400&subset=cyrillic,latin,greek,vietnamese">
   <link rel="stylesheet" href="assets/web/assets/mobirise-icons-bold/mobirise-icons-bold.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
@@ -42,7 +45,9 @@ About us
   <link rel="stylesheet" href="css/bootstrap.css">
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.js"></script>
+  <script src="js/sweetalert.min.js"></script>
 <style>
+
 .parallax {
     background-image: url("https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/website/images/blue.jpg");
     max-height: 300px; 
@@ -70,6 +75,14 @@ list-style:none;
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
+	  <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">Product<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a  href="sell.html">Sell A Product</a>	</li>
+					<li><a  href="buy.jsp">Buy A Product</a></li>
+					<li><a  href="renew.html" onclick="sweetAlert('Sorry', 'Service will be opened soon', 'error');" class="" data-toggle="modal" href='#modale-id'>Renew Product</a></li>
+					<li><a  href="recycle.html" onclick="sweetAlert('Sorry', 'Service will be opened soon', 'error');" class="" data-toggle="modal" href='#modale-id'>Recycle Product</a></li>
+				</ul>
+			</li>
         <li><a href="about.html">About</a></li>
         <li><a href="contactus.html">Contact us</a></li>
         <li><a href="support.html">Support</a></li>
@@ -178,10 +191,10 @@ list-style:none;
 			<h3>Details</h3>
 			</div>
 		<ul  style="color:gray;">
-			<li style="color:gainsboro;"><h4 id="h">Register Address:<br>LC Block-A Room No.714 Chandigarh University<br> Gharuan , Punjab<h2></li>
-			<li style="color:gainsboro;"><h4 id="h">Email-id:<br>contact@eutilize.com<h4></li>
-			<li style="color:gainsboro;"><h4 id="h">Mobile No:<br>7837629907<h4></li>
-			<li style="color:gainsboro;"><h4 id="h">Whatsapp No:<br>7018820603<h4></li>
+			<li style="color:gainsboro;"><h4 id="h">Address:<br>Chandigarh University<br> Gharuan , Punjab<h2></li>
+			<li style="color:gainsboro;"><h4 id="h">Email-id:<br>support@eutilize.com<h4></li>
+			<li style="color:gainsboro;"><h4 id="h">Mobile No:<br>+91 7837629907<h4></li>
+			<li style="color:gainsboro;"><h4 id="h">Whatsapp No:<br>+91 7018820603<h4></li>
 		</ul>
 		</div>
 </section>

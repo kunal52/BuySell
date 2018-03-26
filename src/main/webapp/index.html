@@ -14,8 +14,6 @@
 
   gtag('config', 'UA-115532154-1');
 </script>
-
-
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
   (adsbygoogle = window.adsbygoogle || []).push({
@@ -33,6 +31,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Eutilize.com">
   <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=0">
+  <meta name="theme-color" content="#2c2c2c">
+  <meta name="msapplication-navbutton-color" content="#2c2c2c">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#2c2c2c">
   <link rel="stylesheet" href="js/w3.css">
   <title>Eutilize</title>
   <link rel="stylesheet" href="assets/web/assets/mobirise-icons-bold/mobirise-icons-bold.css">
@@ -78,34 +79,6 @@ $(".scrollToTop").hide();
 		return false;
 	});
 });
-function formValidation()  
-{   
-var phone = document.forms["myForm"]["phone"].value;
-var phoneNum = phone.replace(/[^\d]/g, '');
-if(phoneNum == "")
-{
-return true;
-}
-if (phoneNum.charAt(0)!="9" && phoneNum.charAt(0)!="8" && phoneNum.charAt(0)!="7" && phoneNum.charAt(0)!="6" && phoneNum.charAt(0)!="0")
-           {
-                alert("enter the correct number");
-                return false
-           }
-		   else if(phoneNum < 0)
-		   {
-		    alert("number cant be negative ");
-                return false
-		   }
-else if(phoneNum.length > 9 && phoneNum.length < 12 ) {  
-return true; 
-} 
-else
-{
-alert("enter the valid phone number");
-return false;
-}
-}
-
 </script>
 </head>
 <body>
@@ -115,66 +88,93 @@ return false;
             <div class="mbr-navbar__container">
                 <div class="mbr-navbar__column mbr-navbar__column--s mbr-navbar__brand">
                     <span class="mbr-navbar__brand-link mbr-brand mbr-brand--inline">
-                        <span class="mbr-brand__name"><a class="mbr-brand__name text-white" href="index.html"><img src="https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/website/images/1111.png"  width="200px" height="60px" style=""></a></span>
+                        <span class="mbr-brand__name"><a class="mbr-brand__name text-white" href="http://www.eutilize.com"><img src="https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/website/images/1111.png"  width="200px" height="60px" style=""></a></span>
                     </span>
                 </div>
-                <div class="mbr-navbar__hamburger mbr-hamburger"><span class="mbr-hamburger__line"></span></div>
-                <div class="mbr-navbar__column mbr-navbar__menu">
-                    <nav class="mbr-navbar__menu-box mbr-navbar__menu-box--inline-right">
-                        <div class="mbr-navbar__column">
-                            <ul class="mbr-navbar__items mbr-navbar__items--right float-left mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active mbr-buttons--only-links"><li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="about.html">ABOUT</a></li><li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="contactus.html">CONTACT US</a></li><li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="support.html">SUPPORT</a></li></ul>                            
-                        </div>
-                    </nav>
-                </div>
+                <div class="mbr-navbar__hamburger mbr-hamburger"><span class="mbr-hamburger__line"></span>
+				    <div class="mbr-navbar__column mbr-navbar__menu">
+								<nav class="mbr-navbar__menu-box mbr-navbar__menu-box--inline-right">
+									<div class="mbr-navbar__column">
+										<ul class="mbr-navbar__items mbr-navbar__items--right  mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active mbr-buttons--only-links">
+										<li class="mbr-navbar__item">
+											<a class="mbr-buttons__link btn text-white" href="notify.html">Notify Us</a>
+										</li>
+										<li class="mbr-navbar__item">
+											<a class="mbr-buttons__link btn text-white" href="" class="dropdown-toggle" data-toggle="dropdown">Product <span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li><a  href="sell.html">Sell A Product</a>	</li>
+											<li><a  href="buy.jsp">Buy A Product</a></li>
+											<li><a  href="renew.html" onclick="sweetAlert('Sorry', 'Service will be opened soon', 'error');" class="" data-toggle="modal" href='#modale-id'>Renew Product</a></li>
+											<li><a  href="recycle.html" onclick="sweetAlert('Sorry', 'Service will be opened soon', 'error');" class="" data-toggle="modal" href='#modale-id'>Recycle Product</a></li>
+										</ul>
+										</li>
+										<li class="mbr-navbar__item">
+											<a class="mbr-buttons__link btn text-white" href="about.html">About</a>
+										</li>
+										<li class="mbr-navbar__item">
+											<a class="mbr-buttons__link btn text-white" href="contactus.html">Contact us</a>
+										</li>
+										<li class="mbr-navbar__item">
+											<a class="mbr-buttons__link btn text-white" href="support.html">Support</a>
+										</li>
+										</ul>                            
+									</div>
+								</nav>
+					</div>
+				</div>
+					<div class="mbr-navbar__column mbr-navbar__menu">
+						<nav class="mbr-navbar__menu-box mbr-navbar__menu-box--inline-right">
+							<div class="mbr-navbar__column">
+								<ul class="mbr-navbar__items mbr-navbar__items--right float-left mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active mbr-buttons--only-links">
+								<li class="mbr-navbar__item">
+									<a class="mbr-buttons__link btn text-white" href="notify.html">Notify Us</a>
+								</li>
+								<li class="mbr-navbar__item">
+									<a class="mbr-buttons__link btn text-white" href="" class="dropdown-toggle" data-toggle="dropdown">Product <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a  href="sell.html">Sell A Product</a>	</li>
+									<li><a  href="buy.jsp">Buy A Product</a></li>
+									<li><a  href="renew.html" onclick="sweetAlert('Sorry', 'Service will be opened soon', 'error');" class="" data-toggle="modal" href='#modale-id'>Renew Product</a></li>
+									<li><a  href="recycle.html" onclick="sweetAlert('Sorry', 'Service will be opened soon', 'error');" class="" data-toggle="modal" href='#modale-id'>Recycle Product</a></li>
+								</ul>
+								</li>
+								<li class="mbr-navbar__item">
+									<a class="mbr-buttons__link btn text-white" href="about.html">About</a>
+								</li>
+								<li class="mbr-navbar__item">
+									<a class="mbr-buttons__link btn text-white" href="contactus.html">Contact us</a>
+								</li>
+								<li class="mbr-navbar__item">
+									<a class="mbr-buttons__link btn text-white" href="support.html">Support</a>
+								</li>
+								</ul>                            
+							</div>
+						</nav>
+					</div>
             </div>
         </div>
     </div>
 </section>
-<div id="wowslider-container1" style="margin-top:90px;">
-	<div class="ws_images">
-	<ul>
+<div id="wowslider-container1">
+	<div class="ws_images"><ul>
 		<li><img src="https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/website/images/1.jpg" alt="NOW, BUY AND SELL YOUR PRODUCT WITHOUT HESITATION" title="NOW, BUY AND SELL YOUR PRODUCT WITHOUT HESITATION" id="wows1_0"/></li>
 		<li><img src="https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/website/images/rep.jpg" alt="OUR TEAM IS 24/7 READY TO GIVE YOU SERVICE" title="OUR TEAM IS 24/7 READY TO GIVE YOU SERVICE" id="wows1_1"/></li>
 		<li><img src="https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/website/images/repa.jpg" alt="WE BELIEVE IN RENEWING RATHER THAN REPAIRING" title="WE BELIEVE IN RENEWING RATHER THAN REPAIRING" id="wows1_2"/></li>
-		<li><img src="https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/website/images/41.jpg" alt="GET PAID FOR USELESS PRODUCT" title="GET PAID FOR USELESS PRODUCT" id="wows1_3"/></li>
+		<li><img src="https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/website/images/41.jpg" alt="html slider" title="GET PAID FOR USELESS PRODUCT" id="wows1_3"/></li>
 		<li><img src="https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/website/images/5.jpg" alt="EXPLORE OUR SOLUTION WITH OUR PROMISING SERVICES" title="EXPLORE OUR SOLUTION WITH OUR PROMISING SERVICES" id="wows1_4"/></li>
-	</ul>
-	</div>
-	<div class="ws_bullets">
-		<div>
-			<a href="#wows1_0" title="NOW, BUY AND SELL YOUR PRODUCT WITHOUT HESITATION"><span>1</span></a>
-			<a href="#wows1_1" title="OUR TEAM IS 24/7 READY TO GIVE YOU SERVICE"><span>2</span></a>
-			<a href="#wows1_2" title="WE BELIEVE IN RENEWING RATHER THAN REPAIRING"><span>3</span></a>
-			<a href="#wows1_3" title="GET PAID FOR USELESS PRODUCT"><span>4</span></a>
-			<a href="#wows1_4" title="EXPLORE OUR SOLUTION WITH OUR PROMISING SERVICES"><span>5</span></a>
-		</div>
+	</ul></div>
+	<div class="ws_bullets"><div>
+		<a href="#wows1_0" title="NOW, BUY AND SELL YOUR PRODUCT WITHOUT HESITATION"><span><img src="data1/tooltips/1.jpg" alt="NOW, BUY AND SELL YOUR PRODUCT WITHOUT HESITATION"/>1</span></a>
+		<a href="#wows1_1" title="OUR TEAM IS 24/7 READY TO GIVE YOU SERVICE"><span><img src="data1/tooltips/rep.jpg" alt="OUR TEAM IS 24/7 READY TO GIVE YOU SERVICE"/>2</span></a>
+		<a href="#wows1_2" title="WE BELIEVE IN RENEWING RATHER THAN REPAIRING"><span><img src="data1/tooltips/repa.jpg" alt="WE BELIEVE IN RENEWING RATHER THAN REPAIRING"/>3</span></a>
+		<a href="#wows1_3" title="GET PAID FOR USELESS PRODUCT"><span><img src="data1/tooltips/41.jpg" alt="GET PAID FOR USELESS PRODUCT"/>4</span></a>
+		<a href="#wows1_4" title="EXPLORE OUR SOLUTION WITH OUR PROMISING SERVICES"><span><img src="data1/tooltips/5.jpg" alt="EXPLORE OUR SOLUTION WITH OUR PROMISING SERVICES"/>5</span></a>
+	</div></div>	
   <script type="text/javascript" src="engine1/wowslider.js"></script>
   <script type="text/javascript" src="engine1/script.js"></script>
 	</div>
 </div>	
-<!--<section id="para"class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--full-height mbr-section--bg-adapted mbr-parallax-background" data-rv-view="193" style="background-image: url(images/bg2.jpg);">
-    <div class="mbr-box__magnet mbr-box__magnet--sm-padding mbr-box__magnet--center-right">    
-        <div class="mbr-box__container mbr-section__container container">
-            <div class="mbr-box mbr-box--stretched">
-				<div class="mbr-box__magnet mbr-box__magnet--center-left">
-					<div class="row">
-						<div class=" col-sm-5 col-md-offset-1">
-							<div class="mbr-hero animated fadeInUp" >
-								<h1 class="mbr-hero__text" style="color:orange;text-shadow:0px 10px 10px black;margin-top:40px;">Eutilize</h1>
-								<p class="mbr-hero__subtext"style="color:;">Multi Website</p>
-							</div>
-						</div>  
-						<div class="mbr-figure  col-md-6" style="">
-							<iframe class="mbr-embedded-video" src="https://www.youtube.com/embed/YskVs5VyqHk" width="1280" height="720" frameborder="0" allowfullscreen></iframe>
-						</div>						
-				   </div>
-			   </div>
-            </div>
-		</div>
-		 <div class="mbr-overlay" style="opacity: 0.3; background-color: rgb(0, 0, 0);">
-		 </div>
-    </div>
-</section>-->
+
 <section class="mbr-section mbr-section--relative mbr-section--fixed-size" id="features1-e" data-rv-view="68" style="background-color: rgb(255, 255, 255);margin-top:150px;margin-bottom:100px;">
 				<a href="sell.html">
 					<div class="col-md-3">
@@ -196,20 +196,21 @@ return false;
 						</div>
 					</div>
 				</a>
-				<a href="renew.html">
+				<script src="js/sweetalert.min.js"></script>
+				<a href="renew.html" onclick="sweetAlert('Sorry', 'Service will be opened soon', 'error');" class="" data-toggle="modal" href='#modale-id'>
 					<div class="col-md-3">
 						<div class="thumbnail " id="thumb">
-							<img src="https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/website/images/reps.png" style="height:200px;"  data-placement="top" data-toggle="tooltip" title="  Click to Repair your Product">
+							<img src="https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/website/images/reps.png" style="height:200px;"  data-placement="top" data-toggle="tooltip" title="Click to renew a product">
 							<div class="caption">
 								<h3  class="text-center"><b>Renew Product</b></h3>
 							</div>
 						</div>
 					</div>
 				</a>
-				<a href="recycle.html">
+				<a href="recycle.html" onclick="sweetAlert('Sorry', 'Service will be opened soon', 'error');" class="" data-toggle="modal" href='#modale-id'>
 					<div class="col-md-3">
 						<div class="thumbnail" id="thumb">
-						<img src="https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/website/images/re.jpg" style="height:200px;"  data-placement="top" data-toggle="tooltip" title=" Click to Recycle your Product">
+						<img src="https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/website/images/re.jpg" style="height:200px;"  data-placement="top" data-toggle="tooltip" title="Click to recycle a product">
 						<div class="caption">
 								<h3 class="text-center"><b>Recycle</b></h3>
 							</div>
@@ -250,7 +251,7 @@ return false;
                 </div>
                 <div class="mbr-section__container mbr-section__container--last" style="padding-bottom: 62px;">
                     <div class="mbr-article mbr-article--wysiwyg">
-                        <p>Now dont buy new product everytime.Repair your Product from us and give new life to it with availing 3-12 months Warranty on different electronic goods.</p>
+                        <p>Now dont buy new product everytime.Repair your Product from us and give new life to it with availing 1-3 months Warranty on different electronic goods.</p>
                     </div>
                 </div>
             </div>
@@ -307,7 +308,6 @@ return false;
                         <h3 class="mbr-header__text"style="margin-top:-10px;">Call Us</h3>
 							<div class="mbr-header__text" style="margin-top:10px;line-height:30px;">
 								<strong><li>7837629907</li></strong>
-								<strong><li>7018820603</li></strong>
 							</div>	
                     </div>
                 </div>  
@@ -320,7 +320,6 @@ return false;
                     <div class="mbr-header mbr-header--reduce mbr-header--center mbr-header--wysiwyg">
                         <h3 class="mbr-header__text">Message Us</h3>
 						<div class="mbr-header__text" style="margin-top:10px;line-height:30px;">
-								<strong><li>7783860428</li></strong>
 								<strong><li>7901775313</li></strong>
 							</div>
                     </div>
@@ -335,7 +334,7 @@ return false;
                     <div class="mbr-header mbr-header--reduce mbr-header--center mbr-header--wysiwyg">
                         <h3 class="mbr-header__text">Email Us</h3>
 						<div style="margin-top:10px;font-size:20px;">
-								<strong>contact@eutilize.com</strong>
+								<strong>support@eutilize.com</strong>
 							</div>
                     </div>
                 </div>
@@ -348,7 +347,6 @@ return false;
                     <div class="mbr-header mbr-header--reduce mbr-header--center mbr-header--wysiwyg">
                         <h3 class="mbr-header__text">Whatsapp Us</h3>
 						<div class="mbr-header__text" style="margin-top:10px;line-height:30px;">
-								<strong><li>7837629907</li></strong>
 								<strong><li>7018820603</li></strong>
 							</div>
                     </div>
@@ -362,25 +360,20 @@ return false;
         <div class="row">
             <div class="col-sm-12">
                 <div class="row">
-                    <div class="col-sm-8 col-sm-offset-2" data-form-type="formoid">
+                    <div class="col-sm-8 col-sm-offset-2">
                        <div class="page-header">
 							<h2 class="text-center"><b style="font-size:40px; font-style:verdana; color:white;text-shadow:0px 5px 2px black;">Feedback</b></h2>
 						</div>
-                        <div data-form-alert="true">
-                            <div class="hide" data-form-alert-success="true">Thanks for filling out form!</div>
-                        </div>
-                        <form action="" method="post" data-form-title="FEEDBACK" name='myForm'  onSubmit="return formValidation();" >
+                        <form action="feedback.jsp" method="post">
+						<p class="pull-right"><span style="color:red;font-size:15px;">*</span> Feilds Are Mandatory</p>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="name" required="" placeholder="Name*" data-form-field="Name">
+                                <input type="text" class="form-control" name="name" required="" placeholder="Enter Your Name *">
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" name="email"  placeholder="Email" data-form-field="Email">
+                                <input type="email" class="form-control" name="email"  placeholder="Enter Your Email">
                             </div>
                             <div class="form-group">
-                                <input type="number" class="form-control" name="phone" placeholder="Phone" data-form-field="Phone">
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control" name="message" required=""  rows="7" placeholder="Message*" data-form-field="Message"></textarea>
+                                <textarea class="form-control" name="message" required=""  rows="7" placeholder=" Enter Your Feedback *" ></textarea>
                             </div>
                             <div class="mbr-buttons mbr-buttons--right"><button type="submit" class="mbr-buttons__btn btn btn-lg btn-success">Submit</button></div>
                         </form>
@@ -399,20 +392,23 @@ return false;
             <div class="mbr-social-icons col-sm-8">
                 <div class="mbr-social-likes social-likes_style-2" data-counters="false">
                     <div  title="Share link on Facebook" style="display:inline-block;">
-                       <a href="https://www.facebook.com/sharer/sharer.php?u=eutilize.com"><img src="https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/website/images/fb.png" width="65px" height="65px"></a>
+                       <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.eutilize.com"><img src="https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/website/images/fb.png" width="65px" height="65px"></a>
                     </div>
                     <div  title="Share link on google" style="display:inline-block;margin-left:-10px;">
-                       <a href="https://plus.google.com/share?url=eutilize.com"><img src="https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/website/images/go.png" width="50px" height="50px"></a>
+                       <a href="https://plus.google.com/share?url=https://www.eutilize.com"><img src="https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/website/images/go.png" width="50px" height="50px"></a>
                     </div>
                     <div  title="Share link on Twitter" style="display:inline-block;">
-                       <a href="https://twitter.com/home?status=eutilize.com"><img src="https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/website/images/tw.png" width="45px" height="45px"></a>
-                    </div>
-					<div  title="Share link on PinIntrest" style="display:inline-block;">
-                       <a href="https://pinterest.com/pin/create/button/?url=&media=eutilize.com&description=Now%20get%20services%20like%20repairing%20or%20recycling%20your%20electronic%20good%20at%20your%20door%20step.With%20our%20Lightening%20Speed%20Service%20Experience."><img src="https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/website/images/pin.png" width="50px" height="50px"></a>
+                       <a href="https://twitter.com/home?status=https://www.eutilize.com Eutilize is India's online based secure website founded with the idea that unlock new value
+			for customer and take the customer satisfaction to a whole new place ."><img src="https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/website/images/tw.png" width="45px" height="45px"></a>
                     </div>
 					<div  title="Share link on Whatsapp" style="display:inline-block;">
-                       <a href="https://web.whatsapp.com/send?text=www.eutilize.com" data-action="share/whatsapp/share"><img src="https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/website/images/ws.png" width="50px" height="50px"></a>
+                       <a href="https://web.whatsapp.com/send?text=www.eutilize.com Eutilize is India's online based secure website founded with the idea that unlock new value
+			for customer and take the customer satisfaction to a whole new place ." data-action="share/whatsapp/share"><img src="https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/website/images/ws.png" width="50px" height="50px"></a>
                     </div>
+					<div  title="Share link on PinIntrest" style="display:inline-block;">
+                       <a href="https://pinterest.com/pin/create/button/?url=https%3A//storage.googleapis.com/fir-cloud-7e07e.appspot.com/website/images/1111.png&media=&description=Eutilize%20is%20India's%20online%20based%20secure%20website%20founded%20with%20the%20idea%20that%20unlock%20new%20value%0A%09%09%09for%20customer%20and%20take%20the%20customer%20satisfaction%20to%20a%20whole%20new%20place%20."><img src="https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/website/images/pin.png" width="50px" height="50px"></a>
+                    </div>
+					
                 </div>
             </div>
         </div>
@@ -441,7 +437,7 @@ return false;
                         <p class="mbr-contacts__text"><strong><u>ADDRESS</u></strong><br>
 							Chandigarh University<br>Gharuan,Punjab<br><br>
 							<strong><u>CONTACTS</u></strong><br>
-							Email:contact@eutilize.com<br>
+							Email:support@eutilize.com<br>
 							Phone: +91 7837629907<br>
 							Whatsapp no:+91 7018820603
 						</p>

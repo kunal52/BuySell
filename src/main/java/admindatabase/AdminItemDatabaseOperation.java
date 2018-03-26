@@ -6,7 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Reusability.models.Item;
+import database.ItemDatabaseOperations;
 import database.JdbcConnection;
+import database.UserDatabaseOperation;
+import mailapi.SendEmail;
 
 public class AdminItemDatabaseOperation {
 
@@ -77,6 +80,8 @@ public class AdminItemDatabaseOperation {
 	
 	public static void verifyItem(String id)
 	{
+		
+		
 		String query="UPDATE Items SET isverified = true WHERE id = ?";
 		JdbcConnection jdbcConnection=new JdbcConnection();
 		java.sql.Connection connection=jdbcConnection.connect();
@@ -84,13 +89,15 @@ public class AdminItemDatabaseOperation {
 			
 		try {
 		
-		
 		preparedStatement=connection.prepareStatement(query);
 		preparedStatement.setString(1, id);
-		
 		preparedStatement.executeUpdate();
+		preparedStatement.closeOnCompletion();
 		
-		preparedStatement.close();
+		Item i=new ItemDatabaseOperations().getItem(id);
+		
+		SendEmail.verifyEmail(new UserDatabaseOperation().getUser(i.getContact_id()).getEmail(), i.getName(), id);
+		
     	connection.close();
     	jdbcConnection.disConnect();
 		}catch (Exception e) {
@@ -116,8 +123,44 @@ public class AdminItemDatabaseOperation {
 		String id=strings[0];
 		String message=strings[1];
 		
+		
 		System.out.println(id);
 		System.out.println(message);
+		
+		String query="UPDATE Items SET isverified = false WHERE id = ?";
+		JdbcConnection jdbcConnection=new JdbcConnection();
+		java.sql.Connection connection=jdbcConnection.connect();
+		java.sql.PreparedStatement preparedStatement=null;
+			
+		try {
+		
+		
+		preparedStatement=connection.prepareStatement(query);
+		preparedStatement.setString(1, id);
+		
+		preparedStatement.executeUpdate();
+		
+		preparedStatement.closeOnCompletion();
+		
+		Item i=new ItemDatabaseOperations().getItem(id);
+		
+		SendEmail.notVerifyEmail(new UserDatabaseOperation().getUser(i.getContact_id()).getEmail(), i.getName(), id, message);
+		
+    	connection.close();
+    	jdbcConnection.disConnect();
+		}catch (Exception e) {
+			
+		}	
+		finally{
+		    try {
+		    	preparedStatement.close();
+		    	connection.close();
+		    	jdbcConnection.disConnect();
+		    	
+		    } catch (final SQLException e) {
+		        
+		    }
+		}
 		
 	}
 	

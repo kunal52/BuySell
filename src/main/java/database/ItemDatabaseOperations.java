@@ -172,9 +172,6 @@ public class ItemDatabaseOperations {
 		while(rs.next())
 		{
 			
-
-			logger.error("Error");
-			
 			items.add(new Item(rs.getString(1),
 							rs.getString(2),
 							rs.getString(3),
