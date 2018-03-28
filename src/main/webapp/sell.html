@@ -79,7 +79,7 @@ function formValidation()
  var h = myForm.myFileInput.value;
   if(h=="")																
  {
-
+alert("you forgot to add image");
 return false;
  }
 
@@ -180,7 +180,7 @@ function readURL(input) {
 									<h3 class="text-center">Fill your product details</h3>
 								</div>
 								<div class="modal-body">									
-											<form name='myForm' id="f" action="database/sellproduct.jsp"  onSubmit="return formValidation();" method="post" enctype="multipart/form-data" ">
+											<form name='myForm' id="f" action="sellproduct.jsp"  onSubmit="return formValidation();" method="post" enctype="multipart/form-data" ">
 									<p class="pull-right"><span style="color:red;font-size:15px;">*</span> Feilds Are Mandatory</p>
 										<div class="form-group">
 											<label style="margin-top:20px;">Seller Name:<span style="color:red;font-size:15px;">*</span></label>
@@ -222,8 +222,8 @@ function readURL(input) {
 										</div>
 										
 										<div class="form-group">
-										<label>Location:</label>
-										<input type="text" class="form-control"  name="loc"  placeholder="Enter your location">
+										<label>Location:<span style="color:red;font-size:15px;">*</span></label>
+										<input type="text" required="required" class="form-control"  name="loc"  placeholder="Enter your location">
 										</div>
 										
 										<div class="form-group">

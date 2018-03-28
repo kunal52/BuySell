@@ -14,20 +14,19 @@ import com.google.cloud.storage.StorageOptions;
 
 public class CloudStorage {
  
-	public static void uploadImageToServer(String id,InputStream content)
+	
+	public static void uploadImageToServer(String file,InputStream content)
 	{
 	  Storage storage;
 	try {
 		storage = StorageOptions.newBuilder()
-				    .setCredentials(ServiceAccountCredentials.fromStream(new FileInputStream("/home/kunal/Downloads/cloudkey.json")))
+				    .setCredentials(ServiceAccountCredentials.fromStream(new FileInputStream("/home/bitnami/gcp/cloudkey.json")))
 				    .build()
 				    .getService();
-	
-	
 		
 	  Bucket bucket=storage.get("fir-cloud-7e07e.appspot.com");
-	 // InputStream content=new FileInputStream(new File(path));
-	  bucket.create("productImage/"+id+".jpg", content, "image/jpeg");
+	  bucket.create("productImage/"+file+".jpg",content, "image/jpeg ");
+	  
 	  
 	} catch (FileNotFoundException e) {
 		// TODO Auto-generated catch block

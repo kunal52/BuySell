@@ -88,7 +88,7 @@ Buyer
 {
     color: #219FD1;
 }
-.price {
+.price h4{
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -97,13 +97,6 @@ Buyer
 <script>
 function formValidation()  
 {   
- var h = myForm.myFileInput.value;
-  if(h=="")																
- {
-
-return false;
- }
-
 var phone = document.forms["myForm"]["phone"].value;
 var phoneNum = phone.replace(/[^\d]/g, '');
 if( phoneNum.length == "")
@@ -197,8 +190,8 @@ return false;
 								<li>you can order any new or old products</li>
 								</div>
 								<div class="modal-body">
-									<form name='myForm' id="f" action="notifyme.jsp"  onSubmit="return formValidation();" method="post" enctype="multipart/form-data" ">
-									<p class="pull-right"><span style="color:red;font-size:15px;">*</span> Feilds Are Mandatory</p>
+									<form name='myForm' id="f" action="notifyme.jsp"  onSubmit="return formValidation();" method="post">
+									<p class="pull-right"style="color:black;"><span style="color:red;font-size:15px;">*</span> Feilds Are Mandatory</p>
 										<div class="form-group">
 											<label style="margin-top:20px;">Customer Name:<span style="color:red;font-size:15px;">*</span></label>
 											<input type="text"  required="required" class="form-control" name="username" id="name" placeholder="Enter your name">
@@ -212,20 +205,18 @@ return false;
 										<input type="email"  required="required" class="form-control" name="email" id="email" placeholder="Enter your Email-id">
 										</div>
 										<div class="form-group">
-										<label >Phone no:<span style="color:red;font-size:15px;">*</span><span data-target="#cap1" data-toggle="collapse" class=" glyphicon glyphicon-exclamation-sign"></span></label>
-										<div id="cap1" class="collapse"style="color:red;text-shadow:1px 1px 1px black;">For Contacting Purpose when product is ordered</div>
+										<label >Phone no:<span style="color:red;font-size:15px;">*</span><span data-target="#cap1" data-toggle="collapse" class="glyphicon glyphicon-exclamation-sign"></span></label>
+										<div id="cap1" class="collapse"style="color:red;text-shadow:1px 1px 1px black;">For Contacting Purpose when product is available</div>
 										<input  name="somename"
-    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-    type = "number"
-    maxlength = "10"  min="0" required="required" class="form-control" id="phone" name="phone" pattern="[789][0-9]{9}"  placeholder="Enter your mobile number">
+											oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+											type = "number"
+											maxlength = "10"  min="0" required="required" class="form-control" id="phone" name="phone" pattern="[789][0-9]{9}"  placeholder="Enter your mobile number">
 										</div>
 										<div class="form-group">
 											<label>Product Description:<span style="color:red;font-size:15px;">*</span></label> 
 											<textarea class="form-control" name="description" rows="4" placeholder="Enter The Product Description...."></textarea>
 										</div>
-										
 										<button class="btn btn-success"  style="width:100px;">Submit</button>
-										
 									</form>
 								</div>
 						</div>
@@ -365,7 +356,7 @@ List<Item>list;
 			
 
 			<%	
-			int totalPages=(int)Math.ceil(ItemDatabaseOperations.getTotalItems()/12);
+			int totalPages=(int)Math.ceil(ItemDatabaseOperations.getTotalItems(type)/12);
 			for(int i=0;i<=totalPages;i++)
 			{
 			%>

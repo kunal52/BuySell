@@ -236,7 +236,7 @@ return false;
                 <h2><%=item.getName()%></h2>
                 <p><%=item.getDescription() %> </p>
                 <h3>&#8377;<%=item.getPrice() %></h3>
-                <button class="btn btn-primary btn-lg" style=" margin-bottom:10px;" data-toggle="modal" data-target="#modal">Order this Product</button>
+                <button class="btn btn-primary btn-lg" style=" margin-bottom:10px;" data-toggle="modal" data-target="#modal">Buy this Product</button>
             </div>
 			<div class="modal fade" id="modal" data-backdrop="static">
 						<div class="modal-dialog">

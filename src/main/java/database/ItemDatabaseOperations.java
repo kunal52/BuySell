@@ -385,6 +385,53 @@ public class ItemDatabaseOperations {
 		return count;
 	}
 	
+	public static int getTotalItems(String type)
+	{
+		int count=0;
+		JdbcConnection jdbcConnection=new JdbcConnection();
+		java.sql.Connection connection=jdbcConnection.connect();
+		java.sql.PreparedStatement preparedStatement=null;
+		try {
+		
+		if(type==null||type.equals("all"))
+		{
+			preparedStatement=connection.prepareStatement("SELECT COUNT(1) FROM Items where isverified = true ");
+			
+		}
+		else
+		{
+			preparedStatement=connection.prepareStatement("SELECT COUNT(1) FROM Items where isverified = true and type = ?");
+			preparedStatement.setString(1, type);
+		}
+		
+		
+			
+			ResultSet set=preparedStatement.executeQuery();
+			set.next();
+			count= set.getInt(1);
+
+			preparedStatement.close();
+	    	connection.close();
+	    	jdbcConnection.disConnect();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally{
+		    try {
+		    	preparedStatement.close();
+		    	connection.close();
+		    	jdbcConnection.disConnect();
+		    	return count;
+		    } catch (final SQLException e) {
+		        // TODO Auto-generated catch block
+		        e.printStackTrace();
+		    }
+		}
+		return count;
+	}
+	
 	
 	
 }
