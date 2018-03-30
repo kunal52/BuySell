@@ -59,7 +59,7 @@ public class BuyerDataBaseOperation {
 			
 			prepareStatement.closeOnCompletion();
 			
-			SendEmail.sendEmailOrderSuccessFully(i.getBuyer().getEmail(), i.getBuyer().getName(), i.getItem().getId(), tid);
+			SendEmail.sendEmailOrderSuccessFully(i, tid);
 
 			
 			connection.close();

@@ -32,7 +32,7 @@ Support
   <meta name="author" content="K Nithin Kumar">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Eutilize.com">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1 ">
     <meta name="theme-color" content="#2c2c2c">
   <meta name="msapplication-navbutton-color" content="#2c2c2c">
   <meta name="apple-mobile-web-app-status-bar-style" content="#2c2c2c">
@@ -56,35 +56,7 @@ input[type=number] {
     -moz-appearance:textfield;
 	}
   </style>
-<script>
-function formValidation()  
-{   
-var phone = document.forms["myForm"]["phone"].value;
-var phoneNum = phone.replace(/[^\d]/g, '');
-if(phoneNum == "")
-{
-return true;
-}
-if (phoneNum.charAt(0)!="9" && phoneNum.charAt(0)!="8" && phoneNum.charAt(0)!="7" && phoneNum.charAt(0)!="6" && phoneNum.charAt(0)!="0")
-           {
-                alert("enter the correct number");
-                return false
-           }
-		   else if(phoneNum < 0)
-		   {
-		    alert("number cant be negative ");
-                return false
-		   }
-else if(phoneNum.length > 9 && phoneNum.length < 12 ) {  
-return true; 
-} 
-else
-{
-alert("enter the valid phone number");
-return false;
-}
-}
-</script>
+
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -115,18 +87,18 @@ return false;
   </div>
 </nav>
 <section class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--full-height mbr-section--bg-adapted mbr-parallax-background" id="header1-1l" data-rv-view="195" style="background-image: url(https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/website/images/fee.jpg);">
-    <div class="mbr-box__magnet mbr-box__magnet--sm-padding mbr-box__magnet--center-left">       
+    <div class="mbr-box__magnet mbr-box__magnet--sm-padding mbr-box__magnet--center-right">
         <div class="mbr-box__container mbr-section__container container">
             <div class="mbr-box mbr-box--stretched">
 				<div class="mbr-box__magnet mbr-box__magnet--center-left">
 					<div class="row">
 						<div class=" col-sm-6 col-sm-offset-6">
-							<div class="mbr-hero animated fadeInUp" style="color:black;">
-								<h1 class="mbr-hero__text">Feel free to give any suggestions</h1>
-								<p class="mbr-hero__subtext">Because our team is dynamic, we love to hear suggestions from you to provide what you the best and unforgetable experience</p>
+							<div class="mbr-hero animated fadeInUp " >
+								<h1 class="mbr-hero__text" style="text-shadow:0px 5px 5px gainsboro;color:black;">Feel Free To Contact Us...!!</h1>
+								<p class="mbr-hero__subtext" style="color:black;">We love to hear any Queries and problem regarding anything related to our services.Our 24/7 team is always ready to help you out.</p>
 							</div>
 						</div>
-						<div data-WRID="WRID-152180886549857847" data-widgetType="Push Content"  data-class="affiliateAdsByFlipkart" height="250" width="300">
+						<div data-WRID="WRID-152180887166265409" data-widgetType="Push Content"  data-class="affiliateAdsByFlipkart" height="600" width="120" class="pull-right">
 						</div>
 						<script async src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script>
 					</div>
@@ -135,7 +107,7 @@ return false;
         </div>
         <div class="mbr-arrow mbr-arrow--floating text-center">
             <div class="mbr-section__container container">
-                <a class="mbr-arrow__link" href="#form1" style="color:black;"><i class="glyphicon glyphicon-menu-down"></i></a>
+                <a class="mbr-arrow__link" href="#next"><i class="glyphicon glyphicon-menu-down"></i></a>
             </div>
         </div>
     </div>
@@ -201,3 +173,4 @@ return false;
 </section>
 </body>
 </html>
+

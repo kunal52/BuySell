@@ -73,7 +73,7 @@ input[type=number] {
 @media only screen and (max-width: 768px) {
     .btn{
         display: block;
-        margin-left: 25%;
+        margin-left:25%;
 
     }
 }
@@ -115,11 +115,16 @@ input[type=number] {
 {
     color: #219FD1;
 }
-.price {
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
+.price h4{
+  -ms-word-break: break-all;
+     word-break: break-all;
+     word-break: break-word;
+-webkit-hyphens: auto;
+   -moz-hyphens: auto;
+    -ms-hyphens: auto;
+        hyphens: auto;
 }
+
 </style>
 <script>
 function formValidation()  
@@ -149,6 +154,20 @@ alert("enter the valid phone number");
 return false;
 }
 }
+$(document).ready(function(){
+    $('.container').each(function(){  
+      var highestBox = 0;
+      $('.info', this).each(function(){
+        if($(this).height() > highestBox) {
+          highestBox = $(this).height(); 
+        }
+      
+      });  
+      $('.info',this).height(highestBox);
+                    
+    }); 
+
+});
 </script>
 </head>
 <%
@@ -183,7 +202,7 @@ return false;
    Iterator<Item>iterable=list.iterator();
    while(iterable.hasNext())
    {
-	   if(iterable.next().getId()==id)
+	   if(iterable.next().getId().equals(id))
 		   {
 		    iterable.remove();
 		   break;
@@ -227,10 +246,10 @@ return false;
 <div data-WRID="WRID-152180886549857847" data-widgetType="Push Content"  data-class="affiliateAdsByFlipkart" height="250" width="300" class="pull-right"></div>
 <script async src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script>
 <ol class="container-fluid page-header" >
-		   <h2 class="text-center" style="text-shadow:0px 2px 2px black;"> PRODUCT </h2>
+		   <h2 class="text-center" style="text-shadow:0px 2px 2px black;border-bottom:1px solid black;"> PRODUCT </h2>
 		</ol>
-		<section>
-        <div class="row product">
+		<section class="container-fluid">
+       <div class="row product"style="margin-bottom:50px;">
             <center><div class="col-md-5"><img class="img-responsive" src="<%=image_link%>" style="max-height:350px;min-height:350px;"></div></center>
             <div class="col-md-7">
                 <h2><%=item.getName()%></h2>
@@ -275,12 +294,27 @@ return false;
 						</div>
 					</div>
         </div>
-
+</section>
 <section class="container-fluid">
 <div data-WRID="WRID-152180887066438132" data-widgetType="Push Content"  data-class="affiliateAdsByFlipkart" height="90" width="728"></div>
 <script async src="//affiliate.flipkart.com/affiliate/widgets/FKAffiliateWidgets.js"></script>
-<div class="page-header"><h2 class="text-center"style="text-shadow:0px 2px 2px black;margin-top:50px;">You may also like</h2></div>
+
+<%
+
+if(list.size()>0)
+{
+	
+	%>
+	
+	<div class="page-header"><h2 class="text-center"style="text-shadow:0px 2px 2px black;margin-top:50px;">You may also like</h2></div>
 	<div class="container col-md-9" >
+		
+	<%
+}
+	
+%>
+
+
 <%for(Item i:list)
 			   {
 				   String image_source="https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/productImage/"+i.getId()+".jpg"; %>
@@ -289,7 +323,7 @@ return false;
  <div class="col-sm-3" style="margin-top:50px;margin-bottom:20px;">
                             <div class="col-item">
                                 <div class="photo">
-                                    <img src="<%=id %>" class="img-responsive" alt="product image" style="min-height:200px;max-height:200px;" />
+                                    <img src="<%=image_source %>" class="img-responsive" alt="product image" style="min-height:200px;max-height:200px;" />
                                 </div>
                                 <div class="info">
                                     <div class="row">

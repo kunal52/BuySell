@@ -89,10 +89,16 @@ Buyer
     color: #219FD1;
 }
 .price h4{
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
+  -ms-word-break: break-all;
+     word-break: break-all;
+     word-break: break-word;
+-webkit-hyphens: auto;
+   -moz-hyphens: auto;
+    -ms-hyphens: auto;
+        hyphens: auto;
+		display:flex;
 }
+
 </style>
 <script>
 function formValidation()  
@@ -122,6 +128,20 @@ alert("enter the valid phone number");
 return false;
 }
 }
+$(document).ready(function(){
+    $('.container').each(function(){  
+      var highestBox = 0;
+      $('.info', this).each(function(){
+        if($(this).height() > highestBox) {
+          highestBox = $(this).height(); 
+        }
+      
+      });  
+      $('.info',this).height(highestBox);
+                    
+    }); 
+
+});
 </script>
 </head>
 <body >
@@ -312,7 +332,7 @@ List<Item>list;
 	   String id="https://storage.googleapis.com/fir-cloud-7e07e.appspot.com/productImage/"+i.getId()+".jpg";
 
 %>
-<a href="buyer.jsp?id=<%=i.getId()%>" >
+<a href="buyer.jsp?id=<%=i.getId()%>" class="col" >
  <div class="col-sm-3" style="margin-top:50px;">
                             <div class="col-item">
                                 <div class="photo">
@@ -356,7 +376,7 @@ List<Item>list;
 			
 
 			<%	
-			int totalPages=(int)Math.ceil(ItemDatabaseOperations.getTotalItems(type)/12);
+			int totalPages=(int)Math.ceil(ItemDatabaseOperations.getTotalItems()/12);
 			for(int i=0;i<=totalPages;i++)
 			{
 			%>
@@ -375,7 +395,7 @@ List<Item>list;
 			}
 			
 			%>
-					
+		
 			
 		</ul>
 	</div>
