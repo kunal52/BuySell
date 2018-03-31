@@ -165,5 +165,45 @@ public class AdminItemDatabaseOperation {
 	}
 	
 	
+	public static void removeItem(String id)
+	{
+		
+		String query="UPDATE Items SET isverified = deleted WHERE id = ?";
+		JdbcConnection jdbcConnection=new JdbcConnection();
+		java.sql.Connection connection=jdbcConnection.connect();
+		java.sql.PreparedStatement preparedStatement=null;
+			
+		try {
+		
+		
+		preparedStatement=connection.prepareStatement(query);
+		preparedStatement.setString(1, id);
+		
+		preparedStatement.executeUpdate();
+		
+		preparedStatement.closeOnCompletion();
+		
+		
+		
+		
+    	connection.close();
+    	jdbcConnection.disConnect();
+		}catch (Exception e) {
+			
+		}	
+		finally{
+		    try {
+		    	preparedStatement.close();
+		    	connection.close();
+		    	jdbcConnection.disConnect();
+		    	
+		    } catch (final SQLException e) {
+		        
+		    }
+		}
+		
+	}
+	
+	
 	
 }
